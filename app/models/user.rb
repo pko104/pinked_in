@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :skills_and_endorsements
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
 end

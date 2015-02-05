@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'profile_pages#index'
   devise_for :users
+
+  resources :profile_pages
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
