@@ -1,0 +1,2 @@
+class SkillsAndEndorsementsController < ApplicationController
+end

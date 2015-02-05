@@ -1,0 +1,106 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  font-family: Arial;
+}
+
+html, body {
+  margin:0;
+  padding:0;
+}
+
+
+nav{
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  background-color: #E6E6E6;
+  height:60px;
+  background:#F0F0F0;
+  border:.5px solid #B8B8B8;
+  width:100%;
+  margin:0px;
+  -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.05);
+  -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.05);
+  box-shadow: inset 0 -1px 1px rgba(0,0,0,0.05);
+}
+
+}
+nav ul {
+  list-style-type: none;
+  top: 0px;
+}
+nav ul li:first-child {
+  display: inline-block;
+  text-align: left;
+  top: 0px;
+}
+
+nav ul li:nth-child(2){
+  list-style-type: none;
+  display: inline-block;
+  text-align: left;
+  top: 50px;
+}
+
+nav ul li {
+  display: inline-block;
+  text-align: left;
+}
+
+
+
+ul:first-child {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+ul:nth-child(2) {
+    position: absolute;
+    left: 550px;
+    top: 30px;
+}
+
+
+
+a:link, a:visited {
+    display: block;
+    font-weight: bold;
+    color: #000;
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 4px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#new_user > div.box > input[type="submit"]{
+    background: #FFD630;
+    width: 298px; /* width of image */
+    height: 30px; /* height of image */
+    border: 2px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #FFB547;
+    font-family: Arial;
+    font-weight: bold;
+    font-size:15px;
+    box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
+}
+
+
