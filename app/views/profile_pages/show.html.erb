@@ -1,1 +1,29 @@
 <%="HI"%>
+
+<body>
+<div class ="new_message">
+  <%= form_for @message, url: profile_page_newsfeed_path(@user), method: :post do |f| %>
+    <div class ="message">
+      <%#= @user.first_name + @user.last_name%>
+      <%= f.text_area :description, placeholder: "Share an update", size: "100x1"%>
+    </div>
+      <%= f.submit  "Submit", id: 'create-message'%>
+  <%end%>
+</div>
+
+  <div class ="news_feed">
+    <%if @network%>
+      <%@network.users.each do |u|%>
+        <div>
+          <h3 style="color:blue"><%=u.first_name + " #{u.last_name}"%><h3>
+          <div class ="message_feed">
+            <%=u.message.description%>
+          </div>
+          <div class ="liked_feed">
+              <%#="Liked(#{m.liked})"%>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+   </div>
+ </body>

@@ -1,28 +1,28 @@
 $(function() {
-  var $form = $('#new_review')
-  var $formSubmit = $('#create-review')
+  var $form = document.forms[0];
+  var $formSubmit = $('#create-message')
 
   $formSubmit.on('click', function(e) {
     e.preventDefault();
 
-    var userId = $form.attr('data-user-id');
-    var messageReview = $('#review_message').val();
-    var ratingReview = parseInt($('#input-1').val());
+    //var userId = $form.attr('data-user-id');
+    var descriptionMessage = $('#message').val();
 
     $.ajax({
-      url: '/reviews.json',
-      data: {
-        review: {message: messageReview, rating: ratingReview},
-        authenticity_token: $('input[name="authenticity_token"]').val(),
+      url: '/profile_pages/1/newsfeed.json',
+      data: JSON.stringify(description: descriptionMessage),
+       // authenticity_token: $('input[name="authenticity_token"]').val(),
       },
       dataType: 'json',
       method: 'POST'
     }).
     success(function(data) {
-      var messageContainer = $("body > div.scroller.slick-initialized.slick-slider > div > div > div.slick-slide.slick-active > h3:last-child");
-      messageContainer.prepend(data.username + ": " +
-        data.message + " [" +
-        data.rating + " stars]") ;
+     // var nameContainer = $("body > div.news_feed > h3:first-child");
+     // nameContainer.prepend(data.first_name + data.last_name);
+      var messageContainer = $("body > div.news_feed > div.message_feed");
+      messageContainer.prepend(data.description);
+      //var likedContainer = $("body > div.news_feed > div.liked_feed");
+      //likedContainer.prepend(data.liked);
     });
   });
 

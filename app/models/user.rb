@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :projects
   has_many :networks
   has_many :skills_and_endorsements
+  has_many :messages
+  belongs_to :like
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
