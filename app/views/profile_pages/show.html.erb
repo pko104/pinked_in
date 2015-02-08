@@ -7,17 +7,26 @@
       <%#= @user.first_name + @user.last_name%>
       <%= f.text_area :description, placeholder: "Share an update", size: "100x1"%>
     </div>
-      <%= f.submit  "Submit", id: 'create-message'%>
+    <div class = "share-button">
+      <%= f.submit  "Share", id: 'create-message'%>
+    </div>
   <%end%>
 </div>
 
+<%@messages.each do |m|%>
+  <%=m.description%>
+  <%end%>
+
+
+
+
   <div class ="news_feed">
-    <%if @network%>
-      <%@network.users.each do |u|%>
+    <%if @networks%>
+      <%@networks.each do |n|%>
         <div>
-          <h3 style="color:blue"><%=u.first_name + " #{u.last_name}"%><h3>
+          <h3 style="color:blue"><%=n.user.first_name + " #{n.users.last_name}"%><h3>
           <div class ="message_feed">
-            <%=u.message.description%>
+            <%=n.user.message.description%>
           </div>
           <div class ="liked_feed">
               <%#="Liked(#{m.liked})"%>
@@ -27,3 +36,4 @@
     <%end%>
    </div>
  </body>
+

@@ -1,21 +1,10 @@
 class ProfilePagesController < ApplicationController
-  def resource_name
-    :user
-  end
-
-  def resource
-    @resource ||= User.new
-  end
-
-  def devise_mapping
-    @devise_mapping ||= Devise.mappings[:user]
-  end
 
   def show
     @user = current_user
 
-    if Network.find_by(user_id: @user.id)
-      @network = Network.find_by(user_id: @user.id)
+    if Network.where(user_id: @user.id)
+      @networks = Network.where(user_id: @user.id)
     else
       @network = Network.new(user_id: @user.id)
       @user.network_id = @network.id

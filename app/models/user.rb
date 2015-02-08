@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :languages
   has_one :summary
   has_many :projects
-  has_many :networks
+  belongs_to :network
   has_many :skills_and_endorsements
   has_many :messages
   belongs_to :like
