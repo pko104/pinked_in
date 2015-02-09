@@ -6,13 +6,13 @@ class User < ActiveRecord::Base
   has_many :languages
   has_one :summary
   has_many :projects
-  belongs_to :network
+  has_many :networks
   has_many :skills_and_endorsements
   has_many :messages
   belongs_to :like
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable
 
 end

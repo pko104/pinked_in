@@ -1,2 +1,2 @@
-class VolunteeringController < ApplicationController
+class VolunteeringsController < ApplicationController
 end

@@ -1,39 +1,46 @@
-<%="HI"%>
-
 <body>
-<div class ="new_message">
-  <%= form_for @message, url: profile_page_newsfeed_path(@user), method: :post do |f| %>
-    <div class ="message">
-      <%#= @user.first_name + @user.last_name%>
-      <%= f.text_area :description, placeholder: "Share an update", size: "100x1"%>
-    </div>
-    <div class = "share-button">
-      <%= f.submit  "Share", id: 'create-message'%>
-    </div>
-  <%end%>
-</div>
 
-<%@messages.each do |m|%>
-  <%=m.description%>
-  <%end%>
+<h1><%= @user.first_name + @user.last_name%></h1>
+
+<%="HI"%> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 
 
-
-
-  <div class ="news_feed">
-    <%if @networks%>
-      <%@networks.each do |n|%>
-        <div>
-          <h3 style="color:blue"><%=n.user.first_name + " #{n.users.last_name}"%><h3>
-          <div class ="message_feed">
-            <%=n.user.message.description%>
-          </div>
-          <div class ="liked_feed">
-              <%#="Liked(#{m.liked})"%>
-          </div>
-        </div>
-      <%end%>
+<%if @current_user == @user%>
+  <div class ="new_message">
+    <%= form_for @message, url: profile_page_newsfeed_path(@current_user), method: :post do |f| %>
+      <div class ="message">
+        <%= f.text_area :description, placeholder: "Share an update", size: "100x1"%>
+      </div>
+      <div class = "share-button">
+        <%= f.submit  "Share", id: 'create-message'%>
+      </div>
     <%end%>
-   </div>
+  </div>
+<%else%>
+<%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
+<%end%>
+
+<%if !@networks%>
+  <%@messages.each do |m|%>
+    <%=m.description%>
+  <%end%>
+<%else%>
+  <%@networks.each do |n|%>
+    <%n.messages.each do |m|%>
+      <%=m.description%>
+    <%end%>
+  <%end%>
+<%end%>
+
+<%if @newsfeed%>
+  <%@newsfeed.each do |friends|%>
+    <%friends.messages.each do |n|%>
+      <%=n.description%>
+    <%end%>
+  <%end%>
+<%end%>
+
+
+
  </body>
 

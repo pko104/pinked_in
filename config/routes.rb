@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+
   root 'profile_pages#index'
+
+
   devise_for :users
+  resources :users
 
   resources :profile_pages do
     post 'newsfeed'
+    post 'pink_in'
   end
 
   resources :messages

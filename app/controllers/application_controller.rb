@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_devise_permitted_parameters
-    registration_params = [:first_name, :email, :password, :last_name]
+    registration_params = [:username, :email, :password, :password_confirmation, :first_name, :last_name]
 
     if params[:action] == 'update'
       devise_parameter_sanitizer.for(:account_update) {
@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || profile_page_path(resource)
-    #redirect_to profile_pages_path(resource)
   end
 
 

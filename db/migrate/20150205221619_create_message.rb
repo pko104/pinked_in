@@ -4,6 +4,7 @@ class CreateMessage < ActiveRecord::Migration
      # t.integer :liked_id
       t.text :description, null: :false
       t.integer :user_id, null: :false
+      t.timestamps
     end
   end
 end
