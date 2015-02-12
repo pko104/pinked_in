@@ -24,6 +24,10 @@ February 7,2015
 -Added sign out link
 -Changed passwords to 6 letter length
 
-February 9,2015
+February 9, 2015
 -Added a column to network connected_ids_array
 -Implemented logic of each user owning their own network and others may "Pink In" (Join their network), which would append their user_id to a string, which is split in the controller into an array and then looped through with the Network.where and each object is then appended to a newsfeed array, which is used in the views to show all messages that those who are connected can see.
+
+February 11, 2015
+-Fixed issue where only one user can be connected to another, now multiple users can be connected to each other
+-I had two loops running separately so the posts were not ordered in the newsfeed, so I pushed all the elements of both loops into one array and sorted by DESC order

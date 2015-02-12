@@ -42,7 +42,7 @@ class ProfilePagesController < ApplicationController
     end
     @messages = Message.where(user_id: @user)
 
-    if @newsfeed.length > 1
+    if @newsfeed
     @newsfeed = @newsfeed.sort_by{ |k| k["created_at"]}.reverse
     end
     #binding.pry
@@ -73,8 +73,13 @@ class ProfilePagesController < ApplicationController
     @user = User.find(params[:profile_page_id])
     @network = Network.find_by(user_id: @user)
     @mynetwork = Network.find_by(user_id: @current_user)
-    @network.connected_ids_array = ""
+
+    if @network.connected_ids_array == nil
+      @network.connected_ids_array = ""
+    end
+
     @network.connected_ids_array << "#{@current_user.id},"
+
     if @network.save
       @mynetwork.connected_ids_array = ""
       @mynetwork.connected_ids_array << "#{@user.id},"
