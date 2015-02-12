@@ -2,7 +2,7 @@
 
 <h1><%= @user.first_name + @user.last_name%></h1>
 
-<%="HI"%> <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 
 
 <%if @current_user == @user%>
@@ -20,23 +20,15 @@
 <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
 <%end%>
 
-<%if !@networks%>
-  <%@messages.each do |m|%>
-    <%=m.description%>
-  <%end%>
-<%else%>
-  <%@networks.each do |n|%>
-    <%n.messages.each do |m|%>
-      <%=m.description%>
-    <%end%>
-  <%end%>
-<%end%>
 
 <%if @newsfeed%>
-  <%@newsfeed.each do |friends|%>
-    <%friends.messages.each do |n|%>
-      <%=n.description%>
-    <%end%>
+  <%@newsfeed.each do |posts|%>
+      <div class = "newsfeed-post">
+        <li>
+          <%="#{posts.user.first_name + " " + posts.user.last_name + ":"}"%>
+          <%=posts.description%>
+        </li>
+      </div>
   <%end%>
 <%end%>
 

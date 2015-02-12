@@ -50,9 +50,11 @@ ActiveRecord::Schema.define(version: 20150209105411) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text    "description"
-    t.integer "user_id"
-    t.integer "network_id",  null: false
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "network_id",  null: false
   end
 
   create_table "networks", force: :cascade do |t|

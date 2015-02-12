@@ -17,17 +17,22 @@ class ProfilePagesController < ApplicationController
       @current_user.save
       @messages = Message.where(user_id: @user)
     else
-      @networks = Network.where(user_id: @user)
       @newsfeed = []
+      @networks = Network.where(user_id: @user)
       if @networks.length >= 1 && @networks != nil
         @networks.each do |network|
+          network.messages.each do |nw|
+            @newsfeed << nw
+          end
           if network.connected_ids_array != nil && network.connected_ids_array.length >= 1
           friends = network.connected_ids_array.split(',')
             friends.each do |friend|
               @friend_network = Network.where(user_id: friend)
               if @friend_network.length >= 1 && @friend_network != nil
                 @friend_network.each do |f|
-                  @newsfeed << f
+                  f.messages.each do |p|
+                    @newsfeed << p
+                  end
                 end
               end
             end
@@ -36,6 +41,10 @@ class ProfilePagesController < ApplicationController
       end
     end
     @messages = Message.where(user_id: @user)
+
+    if @newsfeed.length > 1
+    @newsfeed = @newsfeed.sort_by{ |k| k["created_at"]}.reverse
+    end
     #binding.pry
     @message = Message.new
   end
