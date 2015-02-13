@@ -4,7 +4,9 @@
 
 <h2><%="Pinkies"%></h2>
 
-<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+<div class= "sign-out">
+  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+</div>
 
 
 <%if @current_user == @user%>
@@ -19,7 +21,7 @@
     <%end%>
   </div>
 <%else%>
-<%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
+  <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
 <%end%>
 
 
