@@ -40,6 +40,7 @@ class ProfilePagesController < ApplicationController
         end
       end
     end
+
     @messages = Message.where(user_id: @user)
 
     if @newsfeed
