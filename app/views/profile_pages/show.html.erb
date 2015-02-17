@@ -5,13 +5,14 @@
 </div>
 
 <div class ="friends-list">
-  <h2><%="Pinkies"%></h2>
+  <h2>
+    <%="Pinkies"%>
+  </h2>
 </div>
 
 <div class= "sign-out">
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 </div>
-
 
 <%if @current_user == @user%>
   <div class ="new_message">
@@ -28,7 +29,6 @@
   <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
 <%end%>
 
-
 <%if @newsfeed%>
   <%@newsfeed.each do |posts|%>
       <div class = "newsfeed-post">
@@ -40,7 +40,5 @@
   <%end%>
 <%end%>
 
-
-
- </body>
+</body>
 
