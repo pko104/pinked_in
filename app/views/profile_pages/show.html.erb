@@ -4,6 +4,10 @@
   <h1><%= @user.first_name + " " + @user.last_name%></h1>
 </div>
 
+<div class = "pinkies">
+  <h2><%= "Friends: #{@networks[0].connected_ids_array.split(',').length}"%></h2>
+</div>
+
 <div class= "sign-out">
   <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 </div>
@@ -29,11 +33,9 @@
 </div>
 
 <div class ="friends-list">
-  <h2>
-    <%="10 people have new connections"%>
-    <%="List new connections that youre connections have made by checking their network"%>
-  </h2>
-</div>
+  <%="10 people have new connections"%>
+  <%="List new connections that youre connections have made by checking their network"%>
+  </div>
 
 <%#insert likes/status updates/everything into newsfeed array%>
 
