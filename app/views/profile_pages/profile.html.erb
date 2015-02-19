@@ -1,0 +1,61 @@
+<div class = "user-name">
+  <h1><%= @user.first_name + " " + @user.last_name%></h1>
+</div>
+
+<%="Summary"%>
+
+<%if @summary%>
+  <%=@summary.description%>
+<%end%>
+
+</br>
+
+<%="Experiences"%>
+
+<%if @experiences%>
+  <%@experiences.each do |e|%>
+    <%=e.description%>
+  <%end%>
+<%end%>
+
+</br>
+
+<%="Projects"%>
+
+<%if @projects%>
+  <%@projects.each do |p|%>
+    <%=p.description%>
+  <%end%>
+<%end%>
+
+</br>
+
+<%="Languages"%>
+
+<%if @languages%>
+  <%@languages.each do |lang|%>
+    <%=lang.description%>
+  <%end%>
+<%end%>
+
+</br>
+
+<%="Skills & Endorsements"%>
+
+<%if @skills%>
+  <%@skills.each do |skill|%>
+    <%=skill.name_of_skill%>
+  <%end%>
+<%end%>
+
+</br>
+
+<%="Education"%>
+
+<%if @educations%>
+  <%@educations.each do |ed|%>
+    <%=ed.description%>
+  <%end%>
+<%end%>
+
+</br>

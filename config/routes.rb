@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :profile_pages do
     post 'newsfeed'
     post 'pink_in'
+    get 'profile'
   end
 
   resources :messages

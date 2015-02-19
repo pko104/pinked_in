@@ -50,6 +50,18 @@ class ProfilePagesController < ApplicationController
     @message = Message.new
   end
 
+  def profile
+    @user = current_user
+    @summary = Summary.find_by(user_id: @user)
+    @educations = Education.where(user_id: @user)
+    @experiences = Experience.where(user_id: @user)
+    @projects = Project.where(user_id: @user)
+    @languages = Language.where(user_id: @user)
+    @skills = nil #fix naming of skills and endorsements ruby problems
+   # @skills = SkillAndEndorsement.where(user_id: @user)
+    @volunteering = Volunteering.where(user_id: @user)
+  end
+
   def newsfeed
     @current_user = current_user
     @message = Message.new(message_params)

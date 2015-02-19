@@ -1,5 +1,7 @@
 <body>
 
+<%=link_to "Profile", profile_page_profile_path(@user)%>
+
 <div class = "user-name">
   <h1><%= @user.first_name + " " + @user.last_name%></h1>
 </div>
@@ -27,16 +29,16 @@
   <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
 <%end%>
 
-<div class = "people-you-may-know" style = "text-align:right">
+<div class = "people-you-may-know" style = "">
   <%="People you may know"%>
   <%="List 3 people that are 2nd tier connected"%>
 </div>
-
+</br>
 <div class ="friends-list">
   <%="10 people have new connections"%>
   <%="List new connections that youre connections have made by checking their network"%>
-  </div>
-
+</div>
+</br>
 <%#insert likes/status updates/everything into newsfeed array%>
 
 <%if @newsfeed%>
