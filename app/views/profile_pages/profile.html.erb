@@ -2,14 +2,16 @@
   <h1><%= @user.first_name + " " + @user.last_name%></h1>
 </div>
 
-<%="Summary"%>
-
-<%if @summary%>
-  <%=@summary.description%>
-<%end%>
+<div class = "summary">
+  <%="Summary"%>
+    <%if @summary%>
+      <%=@summary.description%>
+    <%end%>
+</div>
 
 </br>
 
+<div class = "experiences">
 <%="Experiences"%>
 
 <%if @experiences%>
@@ -17,9 +19,11 @@
     <%=e.description%>
   <%end%>
 <%end%>
+</div>
 
 </br>
 
+<div class = "projects">
 <%="Projects"%>
 
 <%if @projects%>
@@ -27,8 +31,11 @@
     <%=p.description%>
   <%end%>
 <%end%>
+</div>
 
 </br>
+
+<div class = "languages">
 
 <%="Languages"%>
 
@@ -37,9 +44,11 @@
     <%=lang.description%>
   <%end%>
 <%end%>
+</div>
 
 </br>
 
+<div class = "skills">
 <%="Skills & Endorsements"%>
 
 <%if @skills%>
@@ -47,9 +56,10 @@
     <%=skill.name_of_skill%>
   <%end%>
 <%end%>
-
+</div>
 </br>
 
+<div class = "education">
 <%="Education"%>
 
 <%if @educations%>
@@ -57,5 +67,6 @@
     <%=ed.description%>
   <%end%>
 <%end%>
+</div>
 
 </br>
