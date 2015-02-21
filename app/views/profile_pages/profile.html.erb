@@ -60,13 +60,13 @@
 </br>
 
 <div class = "education">
-<%="Education"%>
+  <%="Education"%>
 
-<%if @educations%>
-  <%@educations.each do |ed|%>
-    <%=ed.description%>
-  <%end%>
-<%end%>
+    <%if @educations%>
+      <%@educations.each do |ed|%>
+        <%=ed.description%>
+      <%end%>
+    <%end%>
 </div>
 
 </br>
