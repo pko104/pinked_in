@@ -12,56 +12,51 @@
 </br>
 
 <div class = "experiences">
-<%="Experiences"%>
-
-<%if @experiences%>
-  <%@experiences.each do |e|%>
-    <%=e.description%>
-  <%end%>
-<%end%>
+  <%="Experiences"%>
+    <%if @experiences%>
+      <%@experiences.each do |e|%>
+        <%=e.description%>
+      <%end%>
+    <%end%>
 </div>
 
 </br>
 
 <div class = "projects">
-<%="Projects"%>
-
-<%if @projects%>
-  <%@projects.each do |p|%>
-    <%=p.description%>
-  <%end%>
-<%end%>
+  <%="Projects"%>
+    <%if @projects%>
+      <%@projects.each do |p|%>
+        <%=p.description%>
+      <%end%>
+    <%end%>
 </div>
 
 </br>
 
 <div class = "languages">
-
-<%="Languages"%>
-
-<%if @languages%>
-  <%@languages.each do |lang|%>
-    <%=lang.description%>
-  <%end%>
-<%end%>
+  <%="Languages"%>
+    <%if @languages%>
+      <%@languages.each do |lang|%>
+        <%=lang.description%>
+      <%end%>
+    <%end%>
 </div>
 
 </br>
 
 <div class = "skills">
-<%="Skills & Endorsements"%>
-
-<%if @skills%>
-  <%@skills.each do |skill|%>
-    <%=skill.name_of_skill%>
-  <%end%>
-<%end%>
+  <%="Skills & Endorsements"%>
+    <%if @skills%>
+      <%@skills.each do |skill|%>
+        <%=skill.name_of_skill%>
+      <%end%>
+    <%end%>
 </div>
+
 </br>
 
 <div class = "education">
   <%="Education"%>
-
     <%if @educations%>
       <%@educations.each do |ed|%>
         <%=ed.description%>
