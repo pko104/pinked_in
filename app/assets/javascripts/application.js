@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+//= require initialize
+//= require jquery-ui
+//= require jquery.turbolinks
+
