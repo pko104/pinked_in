@@ -9,7 +9,8 @@
     <%end%>
     <div class = "new-summary">
       <%=form_for @new_summary do |f|%>
-        <%= f.text_area :description, size: "40x10" %>
+        <%= f.text_field :description, size: "40x10" %>
+        <%= f.submit "Submit"%>
       <%end%>
     </div>
 </div>
@@ -26,13 +27,14 @@
     <div class = "new-experience">
       <%=form_for @new_experience do |f|%>
         <%= f.label :title%>
-        <%= f.text_area :title%>
+        <%= f.text_field :title%>
         <%= f.label :company_name%>
-        <%= f.text_area :company_name%>
+        <%= f.text_field :company_name%>
         <%= f.label :date%>
-        <%= f.text_area :date%>
+        <%= f.text_field :date%>
         <%= f.label :description%>
-        <%= f.text_area :description, size: "40x10" %>
+        <%= f.text_field :description, size: "40x10" %>
+        <%= f.submit "Submit"%>
       <%end%>
     </div>
 </div>
@@ -48,7 +50,11 @@
     <%end%>
   <div class = "new-project">
     <%=form_for @new_project do |f|%>
-      <%= f.text_area :description, size: "40x10" %>
+      <%= f.label :title%>
+      <%= f.text_field :title%>
+      <%= f.label :description%>
+      <%= f.text_field :description, size: "40x10" %>
+      <%= f.submit "Submit"%>
     <%end%>
   </div>
 </div>
@@ -64,7 +70,11 @@
     <%end%>
     <div class = "new-language">
       <%=form_for @new_language do |f|%>
-        <%= f.text_area :description, size: "40x10" %>
+        <%= f.label :name%>
+        <%= f.text_field :name%>
+        <%= f.label :proficiency%>
+        <%= f.text_field :proficiency%>
+        <%= f.submit "Submit"%>
       <%end%>
     </div>
 </div>
@@ -80,7 +90,9 @@
     <%end%>
     <div class = "new-skill">
       <%=form_for @new_skill do |f|%>
-        <%= f.text_area :description, size: "40x10" %>
+        <%= f.label :name_of_skill%>
+        <%= f.text_field :name_of_skill, size: "40x10" %>
+        <%= f.submit "Submit"%>
       <%end%>
     </div>
 </div>
@@ -96,7 +108,13 @@
     <%end%>
   <div class = "new-education">
     <%=form_for @new_education do |f|%>
-      <%= f.text_area :description, size: "40x10" %>
+      <%= f.label :school%>
+      <%= f.text_field :school%>
+      <%= f.label :degree%>
+      <%= f.text_field :degree%>
+      <%= f.label :date%>
+      <%= f.text_field :date%>
+      <%= f.submit "Submit"%>
     <%end%>
   </div>
 </div>

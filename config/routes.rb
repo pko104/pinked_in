@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :experiences, only: [:index, :show, :destroy]
   resources :projects, only: [:index, :show, :destroy]
   resources :languages, only: [:index, :show, :destroy]
-  resources :skills_and_endorments, only: [:index, :show, :destroy]
+  resources :skills, only: [:index, :show, :destroy]
   resources :educations, only: [:index, :show, :destroy]
 
   resources :messages
