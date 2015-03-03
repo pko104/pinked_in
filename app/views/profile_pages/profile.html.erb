@@ -7,6 +7,11 @@
     <%if @summary%>
       <%=@summary.description%>
     <%end%>
+    <div class = "new-summary">
+      <%=form_for @new_summary do |f|%>
+        <%= f.text_area :description, size: "40x10" %>
+      <%end%>
+    </div>
 </div>
 
 </br>
@@ -18,6 +23,18 @@
         <%=e.description%>
       <%end%>
     <%end%>
+    <div class = "new-experience">
+      <%=form_for @new_experience do |f|%>
+        <%= f.label :title%>
+        <%= f.text_area :title%>
+        <%= f.label :company_name%>
+        <%= f.text_area :company_name%>
+        <%= f.label :date%>
+        <%= f.text_area :date%>
+        <%= f.label :description%>
+        <%= f.text_area :description, size: "40x10" %>
+      <%end%>
+    </div>
 </div>
 
 </br>
@@ -29,6 +46,11 @@
         <%=p.description%>
       <%end%>
     <%end%>
+  <div class = "new-project">
+    <%=form_for @new_project do |f|%>
+      <%= f.text_area :description, size: "40x10" %>
+    <%end%>
+  </div>
 </div>
 
 </br>
@@ -40,6 +62,11 @@
         <%=lang.description%>
       <%end%>
     <%end%>
+    <div class = "new-language">
+      <%=form_for @new_language do |f|%>
+        <%= f.text_area :description, size: "40x10" %>
+      <%end%>
+    </div>
 </div>
 
 </br>
@@ -51,8 +78,12 @@
         <%=skill.name_of_skill%>
       <%end%>
     <%end%>
+    <div class = "new-skill">
+      <%=form_for @new_skill do |f|%>
+        <%= f.text_area :description, size: "40x10" %>
+      <%end%>
+    </div>
 </div>
-
 
 </br>
 
@@ -63,6 +94,11 @@
         <%=ed.description%>
       <%end%>
     <%end%>
+  <div class = "new-education">
+    <%=form_for @new_education do |f|%>
+      <%= f.text_area :description, size: "40x10" %>
+    <%end%>
+  </div>
 </div>
 
 </br>

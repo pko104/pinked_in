@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :summary
   has_many :projects
   has_many :networks
-  has_many :skills_and_endorsements
+  has_many :skills
   has_many :messages
   belongs_to :like
   # Include default devise modules. Others available are:

@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20150209105411) do
     t.integer "user_id",     null: false
   end
 
-  create_table "skills_and_endorsements", force: :cascade do |t|
+  create_table "skills", force: :cascade do |t|
     t.string  "name_of_skill", null: false
     t.integer "user_id",       null: false
   end

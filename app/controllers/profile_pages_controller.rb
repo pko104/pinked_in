@@ -52,13 +52,19 @@ class ProfilePagesController < ApplicationController
 
   def profile
     @user = current_user
+    @new_summary = Summary.new
+    @new_education = Education.new
+    @new_project = Project.new
+    @new_experience = Experience.new
+    @new_skill = Skill.new
+    @new_language = Language.new
+    @new_voluneteer = Volunteering.new
     @summary = Summary.find_by(user_id: @user)
     @educations = Education.where(user_id: @user)
     @experiences = Experience.where(user_id: @user)
     @projects = Project.where(user_id: @user)
     @languages = Language.where(user_id: @user)
-    @skills = nil #fix naming of skills and endorsements ruby problems
-   # @skills = SkillAndEndorsement.where(user_id: @user)
+    @skills = Skill.where(user_id: @user)
     @volunteering = Volunteering.where(user_id: @user)
   end
 
