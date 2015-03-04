@@ -6,7 +6,7 @@
   <h1><%= @user.first_name + " " + @user.last_name%></h1>
 </div>
 
-<%if @networks[0].connected_ids_array%>
+<%if @networks%>
   <%@pinky_friends = @networks[0].connected_ids_array.split(',').length%>
 <%else%>
   <%@pinky_friends = 0%>

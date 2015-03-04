@@ -2,121 +2,168 @@
   <h1><%= @user.first_name + " " + @user.last_name%></h1>
 </div>
 
-<div class = "summary">
-  <%="Summary"%>
-    <%if @summary%>
-      <%=@summary.description%>
-    <%end%>
-    <div class = "new-summary">
-      <%=form_for @new_summary do |f|%>
-        <%= f.text_field :description, size: "40x10" %>
-        <%= f.submit "Submit"%>
+<div class = "profile-info" style = "background: #F5F5F5; width: 600px; position:relative;margin: auto; left:-250px; padding: 20px;text-align:left;border-style: solid; border-color: #F0F0F0;border-radius: 5px;">
+  <div class = "profile-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;border-color: #F5D6F5;">
+    <h3><%="Summary"%></h3>
+      <%if @summary%>
+        <div class = "current-summary" style ="background: #FFFFFF;padding: 20px;">
+            <%=@summary.description%>
+        </div>
       <%end%>
-    </div>
-</div>
+      </br>
+      <div class = "new-summary">
+        <%=form_for @new_summary do |f|%>
+          <%= f.text_area :description, size: "60x10" %>
+          <%= f.submit "Submit"%>
+        <%end%>
+      </div>
+  </div>
 
-</br>
+  </br>
 
-<div class = "experiences">
-  <%="Experiences"%>
-    <%if @experiences%>
-      <%@experiences.each do |e|%>
-        <%=e.description%>
+  <div class = "experiences" style = "background: #F5E5F5;padding: 10px;border-style: solid;
+    border-color: #F5D6F5;">
+    <h3><%="Experiences"%></h3>
+      <%if @experiences%>
+        <%@experiences.each do |e|%>
+          <div class = "current-experience" style ="background: #FFFFFF;padding: 20px;">
+            <%="Title: #{e.title}"%>
+            </br>
+            <%="Company Name: #{e.company_name}"%>
+            </br>
+            <%="Date: #{e.date}"%>
+            </br>
+            <%="Description:"%>
+            </br>
+            <%=e.description%>
+          </div>
+          </br>
+        <%end%>
       <%end%>
-    <%end%>
-    <div class = "new-experience">
-      <%=form_for @new_experience do |f|%>
+      <div class = "new-experience">
+        <%=form_for @new_experience do |f|%>
+          <%= f.label :title%>
+          <%= f.text_field :title%>
+          <%= f.label :company_name%>
+          <%= f.text_field :company_name%>
+          <%= f.label :date%>
+          <%= f.text_field :date%>
+          </br>
+          <%= f.label :description%>
+          </br>
+          <%= f.text_area :description, size: "60x10" %>
+          <%= f.submit "Submit"%>
+        <%end%>
+      </div>
+  </div>
+
+  </br>
+
+  <div class = "projects" style = " background: #F5E5F5;padding: 10px;border-style: solid;
+    border-color: #F5D6F5;">
+    <h3><%="Projects"%></h3>
+      <%if @projects%>
+        <%@projects.each do |p|%>
+          <div class = "current-project" style ="background: #FFFFFF;padding: 20px;">
+            <%="Title: #{p.title}"%>
+            </br>
+            <%="Description:"%>
+            </br>
+            <%=p.description%>
+          </div>
+        <%end%>
+        </br>
+      <%end%>
+    <div class = "new-project">
+      <%=form_for @new_project do |f|%>
         <%= f.label :title%>
         <%= f.text_field :title%>
-        <%= f.label :company_name%>
-        <%= f.text_field :company_name%>
+        </br>
+        <%= f.label :description%>
+        </br>
+        <%= f.text_area :description, size: "60x10" %>
+        <%= f.submit "Submit"%>
+      <%end%>
+    </div>
+  </div>
+
+  </br>
+
+  <div class = "languages" style = " background: #F5E5F5;padding: 10px;border-style: solid;
+    border-color: #F5D6F5;">
+    <h3><%="Languages"%></h3>
+      <%if @languages%>
+          <%@languages.each do |lang|%>
+            <div class = "current-language" style ="background: #FFFFFF;padding: 20px;">
+              <%="Name: #{lang.name}"%>
+              </br>
+              <%="Proficiency: #{lang.proficiency}"%>
+              </br>
+            </div>
+          <%end%>
+        </br>
+      <%end%>
+      <div class = "new-language">
+        <%=form_for @new_language do |f|%>
+          <%= f.label :name%>
+          <%= f.text_field :name%>
+          <%= f.label :proficiency%>
+          <%= f.text_field :proficiency%>
+          <%= f.submit "Submit"%>
+        <%end%>
+      </div>
+  </div>
+
+  </br>
+
+  <div class = "skills" style = " background: #F5E5F5;padding: 10px;border-style: solid;
+    border-color: #F5D6F5;">
+    <h3><%="Skills & Endorsements"%></h3>
+      <%if @skills%>
+        <%@skills.each do |skill|%>
+          <div class = "current-skill" style ="background: #FFFFFF;padding: 10px;">
+            <%=skill.name_of_skill%>
+          </div>
+        <%end%>
+        </br>
+      <%end%>
+      <div class = "new-skill">
+        <%=form_for @new_skill do |f|%>
+          <%= f.label :name_of_skill%>
+          <%= f.text_field :name_of_skill, size: "40x10" %>
+          <%= f.submit "Submit"%>
+        <%end%>
+      </div>
+  </div>
+
+  </br>
+
+  <div class = "education" style = "background: #F5E5F5;padding: 10px;border-style: solid;
+    border-color: #F5D6F5;">
+    <h3><%="Education"%></h3>
+      <%if @educations%>
+        <%@educations.each do |ed|%>
+          <div class = "current-education" style ="background: #FFFFFF;padding: 10px;">
+            <%="School: #{ed.school}"%>
+            </br>
+            <%="Degree: #{ed.degree}"%>
+            </br>
+            <%="Date: #{ed.date}"%>
+          </div>
+        <%end%>
+        </br>
+      <%end%>
+    <div class = "new-education">
+      <%=form_for @new_education do |f|%>
+        <%= f.label :school%>
+        <%= f.text_field :school%>
+        <%= f.label :degree%>
+        <%= f.text_field :degree%>
         <%= f.label :date%>
         <%= f.text_field :date%>
-        <%= f.label :description%>
-        <%= f.text_field :description, size: "40x10" %>
         <%= f.submit "Submit"%>
       <%end%>
     </div>
-</div>
-
-</br>
-
-<div class = "projects">
-  <%="Projects"%>
-    <%if @projects%>
-      <%@projects.each do |p|%>
-        <%=p.description%>
-      <%end%>
-    <%end%>
-  <div class = "new-project">
-    <%=form_for @new_project do |f|%>
-      <%= f.label :title%>
-      <%= f.text_field :title%>
-      <%= f.label :description%>
-      <%= f.text_field :description, size: "40x10" %>
-      <%= f.submit "Submit"%>
-    <%end%>
   </div>
 </div>
 
-</br>
-
-<div class = "languages">
-  <%="Languages"%>
-    <%if @languages%>
-      <%@languages.each do |lang|%>
-        <%=lang.description%>
-      <%end%>
-    <%end%>
-    <div class = "new-language">
-      <%=form_for @new_language do |f|%>
-        <%= f.label :name%>
-        <%= f.text_field :name%>
-        <%= f.label :proficiency%>
-        <%= f.text_field :proficiency%>
-        <%= f.submit "Submit"%>
-      <%end%>
-    </div>
-</div>
-
-</br>
-
-<div class = "skills">
-  <%="Skills & Endorsements"%>
-    <%if @skills%>
-      <%@skills.each do |skill|%>
-        <%=skill.name_of_skill%>
-      <%end%>
-    <%end%>
-    <div class = "new-skill">
-      <%=form_for @new_skill do |f|%>
-        <%= f.label :name_of_skill%>
-        <%= f.text_field :name_of_skill, size: "40x10" %>
-        <%= f.submit "Submit"%>
-      <%end%>
-    </div>
-</div>
-
-</br>
-
-<div class = "education">
-  <%="Education"%>
-    <%if @educations%>
-      <%@educations.each do |ed|%>
-        <%=ed.description%>
-      <%end%>
-    <%end%>
-  <div class = "new-education">
-    <%=form_for @new_education do |f|%>
-      <%= f.label :school%>
-      <%= f.text_field :school%>
-      <%= f.label :degree%>
-      <%= f.text_field :degree%>
-      <%= f.label :date%>
-      <%= f.text_field :date%>
-      <%= f.submit "Submit"%>
-    <%end%>
-  </div>
-</div>
-
-</br>

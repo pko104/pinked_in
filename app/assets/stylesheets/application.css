@@ -62,8 +62,6 @@ nav ul li {
   text-align: left;
 }
 
-
-
 ul:first-child {
     position: absolute;
     left: 0px;
@@ -74,8 +72,6 @@ ul:nth-child(2) {
     left: 550px;
     top: 30px;
 }
-
-
 
 a:link, a:visited {
     display: block;
@@ -103,4 +99,11 @@ a:link, a:visited {
     inset 0 1px 1px rgba(255,255,255,0.8); /*top internal highlight*/
 }
 
+
+#profile-box{
+  background: #F5E5F5;
+  padding: 10px;
+  border-style: solid;
+  border-color: #F5D6F5;
+}
 

@@ -13,12 +13,12 @@ Rails.application.routes.draw do
     get 'profile'
   end
 
-  resources :summaries, only: [:index, :show, :destroy]
-  resources :experiences, only: [:index, :show, :destroy]
-  resources :projects, only: [:index, :show, :destroy]
-  resources :languages, only: [:index, :show, :destroy]
-  resources :skills, only: [:index, :show, :destroy]
-  resources :educations, only: [:index, :show, :destroy]
+  resources :summaries, only: [:create, :update, :destroy]
+  resources :experiences, only: [:create, :update, :destroy]
+  resources :projects, only: [:create, :update, :destroy]
+  resources :languages, only: [:create, :update, :destroy]
+  resources :skills, only: [:create, :update, :destroy]
+  resources :educations, only: [:create, :update, :destroy]
 
   resources :messages
   # The priority is based upon order of creation: first created -> highest priority.

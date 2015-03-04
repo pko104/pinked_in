@@ -59,13 +59,13 @@ class ProfilePagesController < ApplicationController
     @new_skill = Skill.new
     @new_language = Language.new
     @new_voluneteer = Volunteering.new
-    @summary = Summary.find_by(user_id: @user)
-    @educations = Education.where(user_id: @user)
-    @experiences = Experience.where(user_id: @user)
-    @projects = Project.where(user_id: @user)
-    @languages = Language.where(user_id: @user)
-    @skills = Skill.where(user_id: @user)
-    @volunteering = Volunteering.where(user_id: @user)
+    @summary = Summary.find_by(user_id: params[:profile_page_id])
+    @educations = Education.where(user_id: params[:profile_page_id])
+    @experiences = Experience.where(user_id: params[:profile_page_id])
+    @projects = Project.where(user_id: params[:profile_page_id])
+    @languages = Language.where(user_id: params[:profile_page_id])
+    @skills = Skill.where(user_id: params[:profile_page_id])
+    @volunteering = Volunteering.where(user_id: params[:profile_page_id])
   end
 
   def newsfeed
