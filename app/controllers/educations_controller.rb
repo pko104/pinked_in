@@ -11,6 +11,9 @@ class EducationsController < ApplicationController
     end
   end
 
+  def update
+  end
+
   def education_params
     params.require(:education).permit(:school, :degree, :date, :user_id)
   end
