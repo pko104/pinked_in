@@ -11,6 +11,8 @@ class SkillsController < ApplicationController
     end
   end
 
+  def update
+  end
 
   def skill_params
     params.require(:skill).permit(:name_of_skill, :user_id)
