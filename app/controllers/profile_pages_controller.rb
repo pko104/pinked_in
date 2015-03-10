@@ -6,6 +6,9 @@ class ProfilePagesController < ApplicationController
     end
   end
 
+  def update
+  end
+
   def show
     @user = User.find(params[:id])
     @current_user = current_user
