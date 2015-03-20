@@ -14,8 +14,6 @@ class SummariesController < ApplicationController
   def update
   end
 
-
-
   def summary_params
     params.require(:summary).permit(:description, :user_id)
   end
