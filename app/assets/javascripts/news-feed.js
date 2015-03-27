@@ -5,11 +5,12 @@ $(function() {
   $formSubmit.on('click', function(e) {
     e.preventDefault();
 
+    var userId = $form.attr('data-user-id');
     var descriptionMessage = $('#message').val();
 
     $.ajax({
-      url: '/profile_pages/1/newsfeed.json',
-      data: JSON.stringify(description: descriptionMessage),
+      url: '/profile_pages/' + userId + '/newsfeed.json',
+      data: {JSON.stringify(description: descriptionMessage),
       },
       dataType: 'json',
       method: 'POST'

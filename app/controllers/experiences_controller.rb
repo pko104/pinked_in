@@ -4,10 +4,15 @@ class ExperiencesController < ApplicationController
     @user = current_user
     @experience.user_id = @user.id
     if @experience.save
-      redirect_to profile_page_profile_path(@user), notice: "Summary Updated"
+      respond_to do |format|
+        format.html { redirect_to profile_page_profile_path(@user), notice: "Experience Updated"}
+        format.json { render :show }
+      end
     else
-      flash.now[:notice]= @experience.errors.full_messages
-      render :new
+      respond_to do |format|
+        format.html { render 'new' }
+        format.json
+      end
     end
   end
 

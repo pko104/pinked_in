@@ -4,16 +4,20 @@ class SummariesController < ApplicationController
     @user = current_user
     @summary.user_id = @user.id
     if @summary.save
-      redirect_to profile_page_profile_path(@user), notice: "Summary Updated"
+      respond_to do |format|
+        format.html { redirect_to profile_page_profile_path(@user), notice: "Summary Updated"}
+        format.json { render :show }
+      end
     else
-      flash.now[:notice]= @summary.errors.full_messages
-      render :new
+      respond_to do |format|
+        format.html { render 'new' }
+        format.json
+      end
     end
   end
 
   def update
   end
-
 
   def summary_params
     params.require(:summary).permit(:description, :user_id)
