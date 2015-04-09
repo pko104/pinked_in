@@ -65,7 +65,9 @@ class ProfilePagesController < ApplicationController
     @new_experience = Experience.new
     @new_skill = Skill.new
     @new_language = Language.new
-    @new_voluneteer = Volunteering.new
+    @new_volunteer = Volunteering.new
+    @profile_user = User.find(params[:profile_page_id])
+    @profile_page = ProfilePage.where(params[:profile_page_id])
     @summary = Summary.find_by(user_id: params[:profile_page_id])
     @educations = Education.where(user_id: params[:profile_page_id])
     @experiences = Experience.where(user_id: params[:profile_page_id])
