@@ -114,6 +114,7 @@
   <div class = "languages" style = " background: #F5E5F5;padding: 10px;border-style: solid;
     border-color: #F5D6F5;">
     <h4><%="Languages"%></h4>
+    <button id="language-opener">Add Language</button>
       <%if @languages%>
           <%@languages.each do |lang|%>
             <div class = "current-language" style ="background: #FFFFFF;padding: 20px;">
@@ -133,6 +134,7 @@
             <%= f.label :proficiency%>
             <%= f.text_field :proficiency%>
             <%= f.submit "Submit"%>
+            <button id="language-closer">Close</button>
           <%end%>
         <%end%>
       </div>
@@ -143,6 +145,7 @@
   <div class = "skills" style = " background: #F5E5F5;padding: 10px;border-style: solid;
     border-color: #F5D6F5;">
     <h4><%="Skills & Endorsements"%></h4>
+    <button id="skill-opener">Add Skill</button>
       <%if @skills%>
         <%@skills.each do |skill|%>
           <div class = "current-skill" style ="background: #FFFFFF;padding: 10px;">
@@ -157,6 +160,7 @@
             <%= f.label :name_of_skill%>
             <%= f.text_field :name_of_skill, size: "40x10" %>
             <%= f.submit "Submit"%>
+            <button id="skill-closer">Close</button>
           <%end%>
         <%end%>
       </div>
@@ -167,6 +171,7 @@
   <div class = "education" style = "background: #F5E5F5;padding: 10px;border-style: solid;
     border-color: #F5D6F5;">
     <h4><%="Education"%></h4>
+    <button id="education-opener">Add Education</button>
       <%if @educations%>
         <%@educations.each do |ed|%>
           <div class = "current-education" style ="background: #FFFFFF;padding: 10px;">
@@ -189,6 +194,7 @@
           <%= f.label :date%>
           <%= f.text_field :date%>
           <%= f.submit "Submit"%>
+          <button id="education-closer">Close</button>
         <%end%>
       <%end%>
     </div>
