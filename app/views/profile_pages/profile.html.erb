@@ -12,7 +12,7 @@
     <h4><%="Summary"%></h4>
     <div class="divbutton">
       <button id="summary-opener" type="button">Add Summary</button>
-    </div>
+
 
       <%if @summary%>
         <div class = "current-summary" style ="background: #FFFFFF;padding: 20px;">
@@ -20,6 +20,7 @@
         </div>
       <%end%>
       </br>
+      </div>
       <div class = "new-summary">
         <%if @user == @profile_user%>
           <%=form_for @new_summary do |f|%>
