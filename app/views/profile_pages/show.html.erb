@@ -1,6 +1,16 @@
+<style>
+  body {background-color:#F0F0F0}
+</style>
+
 <body>
 
+
 <%=link_to "Profile", profile_page_profile_path(@user)%>
+<%=link_to "My Profile", profile_page_profile_path(@current_user)%>
+<div class= "sign-out">
+  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+</div>
+
 
 <div class = "user-name">
   <h1><%= @user.first_name + " " + @user.last_name%></h1>
@@ -14,10 +24,6 @@
 
 <div class = "pinkies">
   <h2><%= "Friends: #{@pinky_friends}" %></h2>
-</div>
-
-<div class= "sign-out">
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 </div>
 
 <%if @current_user == @user%>
