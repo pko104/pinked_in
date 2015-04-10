@@ -10,19 +10,20 @@
   <div class = "profile-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;
     border-color: #F5D6F5;">
     <h4><%="Summary"%></h4>
+      <button id="summary-opener">Add Summary</button>
       <%if @summary%>
         <div class = "current-summary" style ="background: #FFFFFF;padding: 20px;">
             <%=@summary.description%>
         </div>
       <%end%>
       </br>
-      <button id="opener">Open form</button>
       <div class = "new-summary">
         <%if @user == @profile_user%>
           <%=form_for @new_summary do |f|%>
             <%= f.text_area :description, size: "60x10" %>
             <div class = "submit-summary">
               <%= f.submit "Submit"%>
+              <button id="summary-closer">Close</button>
             </div>
           <%end%>
         <%end%>
@@ -35,6 +36,7 @@
   <div class = "experiences" style = "background: #F5E5F5;padding: 10px;border-style: solid;
     border-color: #F5D6F5;">
     <h4><%="Experiences"%></h4>
+      <button id="experience-opener">Add Experience</button>
       <%if @experiences%>
         <%@experiences.each do |e|%>
           <div class = "current-experience" style ="background: #FFFFFF;padding: 20px;">
@@ -66,6 +68,7 @@
             <%= f.text_area :description, size: "60x10" %>
             <div class = "submit-experience">
               <%= f.submit "Submit"%>
+              <button id="experience-closer">Close</button>
             </div>
           <%end%>
         <%end%>
@@ -77,6 +80,7 @@
   <div class = "projects" style = " background: #F5E5F5;padding: 10px;border-style: solid;
     border-color: #F5D6F5;">
     <h4><%="Projects"%></h4>
+    <button id="project-opener">Add Project</button>
       <%if @projects%>
         <%@projects.each do |p|%>
           <div class = "current-project" style ="background: #FFFFFF;padding: 20px;">
@@ -99,6 +103,7 @@
           </br>
           <%= f.text_area :description, size: "60x10" %>
           <%= f.submit "Submit"%>
+          <button id="project-closer">Close</button>
         <%end%>
       <%end%>
     </div>
