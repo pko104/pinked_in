@@ -7,6 +7,7 @@ $(document).ready(function(){
         return false
     });
 
+
     $("#summary-closer").click(function() {
         $("body > div.profile-info > div > div.new-summary").hide();
         $("#opener").show()
