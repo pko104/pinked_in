@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#new_skill").hide();
-
+  $("#skill-opener").hide();
     $("#skill-opener").click(function() {
         $("#skill-opener").hide()
         $("#new_skill").show();
