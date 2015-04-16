@@ -57,6 +57,15 @@
   <%@newsfeed.each do |posts|%>
       <div class = "newsfeed-post">
         <li>
+          <% if posts.user.avatar.path == nil %>
+        <div>
+          <img src=<%=image_path("cat.png")%> />
+        </div>
+      <%else%>
+        <div>
+          <img src=<%= posts.user.avatar%> alt =<%= "avatar"%> />
+        </div>
+      <%end%>
           <%="#{posts.user.first_name + " " + posts.user.last_name + ":"}"%>
           <%=posts.description%>
         </li>
