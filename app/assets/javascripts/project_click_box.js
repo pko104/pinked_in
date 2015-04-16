@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#new_project").hide();
-
+  $("#project-opener").hide();
     $("#project-opener").click(function() {
         $("#project-opener").hide()
         $("#new_project").show();

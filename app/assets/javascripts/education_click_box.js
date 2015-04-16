@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#new_education").hide();
-
+  $("#education-opener").hide();
     $("#education-opener").click(function() {
         $("#education-opener").hide()
         $("#new_education").show();
