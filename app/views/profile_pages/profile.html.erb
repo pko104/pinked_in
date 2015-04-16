@@ -2,11 +2,32 @@
   body {background-color:#F0F0F0}
 </style>
 
-<div class = "user-name">
-  <h1><%= @profile_user.first_name + " " + @profile_user.last_name%></h1>
-</div>
+
 
 <div class = "profile-info" style = "background: #F5F5F5; width: 600px; position:relative;margin: auto; left:-150px; padding: 20px;text-align:left;border-style: solid; border-color: #F0F0F0;border-radius: 5px;">
+<div class = "main-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;
+    border-color: #F5D6F5;">
+
+    <div class="divbutton" style ="position:relative;width:150px,length:150px">
+      <% if @user.avatar.path == nil %>
+        <div>
+          <img src=<%=image_path("cat.png")%> />
+        </div>
+      <%else%>
+        <div>
+          <img src=<%= @user.avatar%> alt =<%= "avatar"%> />
+        </div>
+      <%end%>
+      <button id="avatar-uploader" type="button" style ="position:relative;top: -30px; left:10px">Edit Profile Picture</button>
+    </div>
+
+    <div class = "user-name">
+  <h2><%= @profile_user.first_name + " " + @profile_user.last_name%></h2>
+  </div>
+
+</div>
+
+  </br>
 
 <div class="divbutton">
   <div class = "profile-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;
@@ -24,8 +45,7 @@
       <%end%>
       </br>
 
-      </div>
-      <div class = "new-summary">
+      <div class = "new_summary">
         <%if @user == @profile_user%>
           <%=form_for @new_summary do |f|%>
             <%= f.text_area :description, size: "60x10" %>
@@ -37,6 +57,8 @@
         <%end%>
       </div>
   </div>
+</div>
+
 
   </br>
 

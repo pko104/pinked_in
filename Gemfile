@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
 gem "rack-timeout"
 gem 'unicorn'
 gem "wice_grid", '3.4.2'
