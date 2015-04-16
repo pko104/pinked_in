@@ -68,16 +68,19 @@
       <%end%>
           <%="#{posts.user.first_name + " " + posts.user.last_name + ":"}"%>
           <%=posts.description%>
+          <%if posts.liked_ids_array%>
             <%=liked = posts.liked_ids_array.split(',')%>
-              <%if liked.length == nil%>
-                <%="Likes (0)"%>
-              <%if liked.length == 1%>
-                <%= "#{liked[0].user.first_name liked[0].user.last_name likes this.}"%>
-              <%if liked.length == 2%>
-                <%= "#{liked[0].user.first_name + " " + liked[0].user.last_name + " and " + liked[1].user.first_name + " " + liked[1].user.last_name + "likes this."}"%>
-              <%else%>
-                <%="Likes (#{liked})"%>
-              <%end%>
+            <%if liked.length == 1%>
+              <%= "#{liked[0].user.first_name + " " +liked[0].user.last_name + "likes this."}"%>
+            <%elsif liked.length == 2%>
+              <%= "#{liked[0].user.first_name + " " + liked[0].user.last_name + " and " + liked[1].user.first_name + " " + liked[1].user.last_name + "likes this."}"%>
+            <%else%>
+              <%="Likes (#{liked})"%>
+            <%end%>
+          <%else%>
+            <%="Likes (0)"%>
+          <%end%>
+
         </li>
       </div>
   <%end%>
