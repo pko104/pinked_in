@@ -1,76 +1,69 @@
+<!DOCTYPE html>
+<html>
 <head>
-<nav>
-  <ul>
-    <li>
-      <img style= "position:relative;margin: auto;left:250px;top:5px; text-align:left;" src="assets/logo.png">
-    </li>
-    <li>
-      <div class="sign-up" style="position:relative;margin: auto;width: 4px; width: 800px; left:600px; top: 10px;text-align:left;">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <li>
-            <div class="field" style="font-size:10px;font-weight:bold">
-              <%= f.label :email, "Email Address" %></br>
-              <%= f.email_field :email, autofocus: true %>
-            </div>
-          </li>
-          <li>
-            <div class="field-2" style="font-size:10px;right:200px;font-weight:bold">
-              <%= f.label :password %></br>
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-          </li>
-          <li>
-            <div class="field-3" style="font-size:10px;left:50px;font-weight:bold">
-              <%= f.submit "Sign in" %>
-            </div>
-          </li>
-        <% end %>
-       </div>
-    </li>
-  </ul>
-</nav>
-</br>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="profile_pages.scss">
 </head>
+  <nav>
+  <ul>
+      <div id="signUp">
+        <div><img id="logo" src="assets/logo.png"></div>
+        <div id="logIn">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <li>
+              <div class="field">
+                <%= f.label :email, "Email Address" %></br>
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+            </li>
+            <li>
+              <div class="field-2">
+                <%= f.label :password %></br>
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+            </li>
+            <li>
+              <div class="field-3">
+                <%= f.submit "Sign in" %>
+              </div>
+            </li>
+          <% end %>
+         </div>
+      </div>
+      </ul>
+  </nav>
 <body>
 
-<h1 style="text-align:center;">Join the world's largest professional network.</h1>
-<div class="sign" style ="position:relative;margin: auto;width: 4px; width: 900px; right:50px;">
-  <ul>
-    <img style= "position:relative;" src="assets/title.png">
-  </ul>
-  <ul>
-    <h2 style="line-height:.1px">Get started - it's free.</h2>
-    <%="Registration takes less than 2 minutes"%>
-    <br>
-    </br>
+<div id="centerBox">
+    <h1 class="title">Be great at what you do</h1>
+    <h2 class="title">Get started - it's free.</h2>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-
       <div>
-      <%= f.text_field :first_name,:size => "30x30",  :placeholder => "First Name" %>
-      <%= f.text_field :last_name, :size => "30x30", :placeholder => "Last Name" %>
+        <h3 class ="text-field">First Name</h3>
+        <%= f.text_field :first_name,:size => "45x30"%>
       </div>
-
-      <div><br />
-      <%= f.email_field :email, :size => "60x30", :placeholder => "Email address" %>
+      <div>
+        <h3 class ="text-field">Last Name</h3>
+        <%= f.text_field :last_name, :size => "30x30"%>
       </div>
-
-      <div><br />
-      <%= f.password_field :password, :size => "60x30", :placeholder => "Password (6 or more characters)"  %>
+      <div>
+        <h3 class ="text-field">Email</h3>
+        <%= f.email_field :email, :size => "60x30"%>
       </div>
-
-
-      <div class="disclaimer" style="color:grey;font-size:10px"><br />
-      <%= "By clicking Join Now, you agree to LinkedIn's User Agreement, Privacy Policy and Cookie Policy."%>
+      <div>
+        <h3 class ="text-field">Password (6 or more characters)</h3>
+        <%= f.password_field :password, :size => "60x30"%>
       </div>
-
+      <div class="disclaimer"><br />
+        <%= "By clicking Join Now, you agree to LinkedIn's User Agreement, Privacy Policy and Cookie Policy."%>
+      </div>
       <div class ="box"><br />
-      <%= f.submit "Join now" %>
+        <%= f.submit "Join now" %>
       </div>
-
     <% end %>
-  </ul>
 </div>
 
 </body>
+</html>
 

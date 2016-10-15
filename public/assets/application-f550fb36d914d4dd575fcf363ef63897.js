@@ -10922,7 +10922,7 @@ $(function() {
 
     $.ajax({
       url: '/profile_pages/1/newsfeed.json',
-      data: JSON.stringify(description: descriptionMessage),
+      data: {description: JSON.stringify(descriptionMessage),
       },
       dataType: 'json',
       method: 'POST'
@@ -10992,7 +10992,7 @@ $(function() {
 
     $.ajax({
       url: '/profile_pages/'+ userId +'/profile.json',
-      data: description: descriptionMessage,
+      data: {description: descriptionMessage},
       dataType: 'json',
       method: 'POST'
     }).

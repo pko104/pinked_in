@@ -3,7 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.serve_static_files = false
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
@@ -29,7 +29,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -47,7 +47,6 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
-  config.assets.compress = true
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
