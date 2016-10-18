@@ -2,66 +2,167 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width,user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="profile_pages.scss">
+    <link rel="stylesheet" type="text/css" href="assets/profile_pages.scss">
 </head>
-  <nav>
-  <ul>
-      <div id="signUp">
-        <div><img id="logo" src="assets/logo.png"></div>
-        <div id="logIn">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <li>
-              <div class="field">
-                <%= f.label :email, "Email Address" %></br>
-                <%= f.email_field :email, autofocus: true %>
-              </div>
-            </li>
-            <li>
-              <div class="field-2">
-                <%= f.label :password %></br>
-                <%= f.password_field :password, autocomplete: "off" %>
-              </div>
-            </li>
-            <li>
-              <div class="field-3">
-                <%= f.submit "Sign in" %>
-              </div>
-            </li>
-          <% end %>
-         </div>
-      </div>
-      </ul>
-  </nav>
 <body>
 
+<nav>
+  <ul>
+    <div id="signUp">
+      <div><img id="logo" src="assets/logo.png"></div>
+      <div id="logIn">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <li>
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
+            </div>
+          </li>
+          <li>
+            <div class="field-2">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+            </div>
+          </li>
+          <li>
+            <div class="field-3">
+              <%= f.submit "Sign in" %>
+            </div>
+          </li>
+        <% end %>
+      </div>
+    </div>
+  </ul>
+</nav>
+
+
 <div id="centerBox">
-    <h1 class="title">Be great at what you do</h1>
-    <h2 class="title">Get started - it's free.</h2>
+  <h1 class="title">Be great at what you do</h1>
+  <h2 class="title">Get started - it's free.</h2>
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
+
       <div>
         <h3 class ="text-field">First Name</h3>
         <%= f.text_field :first_name,:size => "45x30"%>
       </div>
+
       <div>
         <h3 class ="text-field">Last Name</h3>
         <%= f.text_field :last_name, :size => "30x30"%>
       </div>
+
       <div>
         <h3 class ="text-field">Email</h3>
         <%= f.email_field :email, :size => "60x30"%>
       </div>
+
       <div>
         <h3 class ="text-field">Password (6 or more characters)</h3>
         <%= f.password_field :password, :size => "60x30"%>
       </div>
-      <div class="disclaimer"><br />
-        <%= "By clicking Join Now, you agree to LinkedIn's User Agreement, Privacy Policy and Cookie Policy."%>
-      </div>
-      <div class ="box"><br />
+
+      <h3 id="disclaimer" class="text-field">
+        By clicking Join Now, you agree to LinkedIn's User Agreement, Privacy Policy and Cookie Policy.
+      </h3>
+
+      <div class ="box">
         <%= f.submit "Join now" %>
       </div>
-    <% end %>
+
+    <%end%>
+</div>
+
+
+<div id="footer">
+  <div id="search">
+    <ul>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <li>
+          <div class="field">
+            <%= f.label :email, "Find a colleague:", id: "findCol", class: "footer-text" %>
+            <%= f.email_field :first_name, placeholder: "First Name" %>
+          </div>
+        </li>
+        <li>
+          <div class="field-2">
+            <%= f.password_field :last_name, placeholder: "Last Name" %>
+          </div>
+        </li>
+        <li>
+          <div class="field-3">
+            <%= f.submit "Search" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="alpha">
+    <div id="memberDirectory" class="footer-text">
+      <ul>
+        LinkedIn member directory:
+        <li><a>A</a></li>
+        <li><a>B</a></li>
+        <li><a>C</a></li>
+        <li><a>D</a></li>
+        <li><a>E</a></li>
+        <li><a>F</a></li>
+        <li><a>G</a></li>
+        <li><a>H</a></li>
+        <li><a>I</a></li>
+        <li><a>J</a></li>
+        <li><a>K</a></li>
+        <li><a>L</a></li>
+        <li><a>M</a></li>
+        <li><a>N</a></li>
+        <li><a>O</a></li>
+        <li><a>P</a></li>
+        <li><a>Q</a></li>
+        <li><a>R</a></li>
+        <li><a>S</a></li>
+        <li><a>T</a></li>
+        <li><a>U</a></li>
+        <li><a>V</a></li>
+        <li><a>W</a></li>
+        <li><a>X</a></li>
+        <li><a>Y</a></li>
+        <li><a>Z</a></li>
+        <li><a>More</a></li>
+        <li style= "padding: 0 5px 0 5px"> | </li>
+        Browse by Country
+      </ul>
+    </div>
+  </div>
+
+  <div id="links-space">
+      <ul>
+          <li>
+        <div id="general" class="links footer-text">
+        General
+          <div class="sublinks">
+            Sign Up | Help Center | About | Press | Blog | Careers | Developers
+          </div>
+        </div>
+
+        <div id="busiSus" class="links footer-text">
+        Business Solutions
+          <div class="sublinks">
+            Sign Up | Help Center | About | Press | Blog | Careers | Developers
+          </div>
+        </div>
+
+        </li>
+      </ul>
+
+
+        <div id="browse" class="links footer-text">
+        Browse LinkedIn
+        </div>
+        <div id="direct" class="links footer-text">
+        Directories
+        </div>
+
+  </div>
+
 </div>
 
 </body>
