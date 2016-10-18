@@ -185,7 +185,7 @@ a:link, a:visited {
   background-color: $nav-grey;
   width:100%;
   margin:0px;
-  height: 400px;
+  height: 275px;
 }
 
 #search{
@@ -232,7 +232,7 @@ ul li{
   right: 0;
   width: 800px;
   padding: 0 0 20px;
-  border-top: solid white 1px;
+  border-top: solid grey 1px;
 }
 
 .links{
@@ -240,10 +240,32 @@ ul li{
   width: 48%;
 }
 
-li span{
-  display: inline;
+.inline{
+  display: flex;
+  width: 100%;
 }
 
-#links-space li{
-  width: 48%;
+.sublinks{
+  font-size: 11.75px;
+  font-weight: 200;
+}
+
+#nav-bot{
+  width:100%;
+  background-color: black;
+  height: 65px;
+}
+
+#nav-align{
+  text-align:center;
+  color: white;
+  font-weight: 300;
+  font-size: 12px;
+  top:20px;
+  position: relative;
+}
+
+#nav-align li{
+  display:inline;
+  padding: 10px;
 }
