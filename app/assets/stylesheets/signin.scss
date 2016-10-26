@@ -9,10 +9,11 @@ body{
 #centerBox{
   justify-content: center;
   width: 450px;
+  height: 350px;
   padding: 30px 40px;
   background: transparent;
   margin: auto;
-  top:140px;left:0;right:0;bottom:0;
+  top:0px;left:0;right:0;bottom:0;
   position: absolute;
 }
 
@@ -200,5 +201,30 @@ input[type=submit]{
   color: #666;
 }
 
+.alert{
+  background-color: #c9342f;
+  background-repeat: no-repeat;
+  background: -webkit-linear-gradient(top, #dd5959 0%,#c15252 100%);
+  background: -moz-linear-gradient(top, #dd5959 0%,#c15252 100%);
+  background: -o-linear-gradient(top, #dd5959 0%,#c15252 100%);
+  background: linear-gradient(top, #dd5959 0%,#c15252 100%);
+  -webkit-box-shadow: 0 0 0 1px #c15252,0 1px 2px rgba(0,0,0,0.45);
+  -moz-box-shadow: 0 0 0 1px #c15252,0 1px 2px rgba(0,0,0,0.45);
+  box-shadow: 0 0 0 1px #c15252,0 1px 2px rgba(0,0,0,0.45);
+  overflow: hidden;
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  line-height: 20px;
+  position: relative;
+  padding: 10px 20px 10px 50px;
+  width: 80%;
+  margin: auto;
+  top: 30px;
+  justify-content: center;
+}
 
+.errors{
+  color:#dd3737;
+}
 
