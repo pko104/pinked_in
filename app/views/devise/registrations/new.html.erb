@@ -1,29 +1,64 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/assets/signup.scss">
+</head>
+<body>
 
+<h1><img id="logo" src="/assets/whitelogo.png"></h1>
+<h2>Make the most of your professional life</h2>
+
+<div id="centerBox">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <h3 class ="text-field">First Name</h3>
+    <%= f.text_field :first_name,:size => "45x30"%>
+  </div>
+
+  <div class="field">
+    <h3 class ="text-field">Last Name</h3>
+    <%= f.text_field :last_name, :size => "30x30"%>
+  </div>
+
+
+  <div class="field">
+    <h3 class ="text-field">Email</h3>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <h3 class ="text-field">Password (6 characters minimum)</h3>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
 
   <div class="field">
+    <h3 id="disclaimer" class="text-field">
+    By clicking Join Now, you agree to LinkedIn's User Agreement, Privacy Policy and Cookie Policy.
+    </h3>
+  </div>
+
+
+<!--   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  </div> -->
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Join Now" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+  <% end %>
+
+  <div id="confirmation">
+    Already on LinkedIn?
+    <%= render "devise/shared/links" %>
+  </div>
+
+</div>
+
+
+</body>
+</html>
