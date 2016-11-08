@@ -15,6 +15,11 @@ class ProfilePagesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @current_user = current_user
+
+    # if @current_user != @user
+    #   redirect_to profile_page_profile_path(@user)
+    # end
+
     if @current_user.network_id == nil
       @network = Network.new(user_id: @current_user.id)
       @network.connected_ids_array = ""
@@ -57,7 +62,7 @@ class ProfilePagesController < ApplicationController
   end
 
   def profile
-    @user = current_user
+    @current_user = current_user
     @new_summary = Summary.new
     @new_education = Education.new
     @new_project = Project.new
@@ -65,7 +70,7 @@ class ProfilePagesController < ApplicationController
     @new_skill = Skill.new
     @new_language = Language.new
     @new_volunteer = Volunteering.new
-    @profile_user = User.find(params[:profile_page_id])
+    @user = User.find(params[:profile_page_id])
     @summary = Summary.find_by(user_id: params[:profile_page_id])
     @educations = Education.where(user_id: params[:profile_page_id])
     @experiences = Experience.where(user_id: params[:profile_page_id])
@@ -95,19 +100,26 @@ class ProfilePagesController < ApplicationController
   end
 
   def pink_in
+
     @current_user = current_user
-    @user = User.find(params[:profile_page_id])
-    @network = Network.find_by(user_id: @user)
     @mynetwork = Network.find_by(user_id: @current_user)
 
+    @user = User.find(params[:profile_page_id])
+    @network = Network.find_by(user_id: @user)
+
+    #intiates network
     if @network.connected_ids_array == nil
       @network.connected_ids_array = ""
     end
 
+    if @mynetwork.connected_ids_array == nil
+      @mynetwork.connected_ids_array = ""
+    end
+
+    #appends userid with a comma to network
     @network.connected_ids_array << "#{@current_user.id},"
 
     if @network.save
-      @mynetwork.connected_ids_array = ""
       @mynetwork.connected_ids_array << "#{@user.id},"
       @mynetwork.save
       redirect_to profile_page_path(@current_user)

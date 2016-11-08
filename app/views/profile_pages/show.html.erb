@@ -27,7 +27,6 @@
 <div id ="lBorder">
 
   <div id='profileBox' class='box'>
-
     <div class='circle'>
       <% if @user.avatar.path == nil %>
         <div>
@@ -39,40 +38,31 @@
         </div>
       <%end%>
     </div>
-
     <div id ='nameDiv'>
       <h2><%= @user.first_name + " " + @user.last_name%></h2>
-      <h3><%= @user.experiences[0].title + " at " + @user.experiences[0].company_name %></h2>
+      <h3>
+          <%if @user.experiences[0]%>
+            <%=@user.experiences[0].title + " at " + @user.experiences[0].company_name%>
+          <%else%>
+            <%='Newbie at Noobcorps'%>
+          <%end%>
+      </h3>
       <div id='improve'>
         <%=link_to "Improve your profile", profile_page_profile_path(@current_user)%>
       </div>
     </div>
-
   </div>
-
   <div id='rightProfileBox' class='box'>
-
     <div id='profileViews'>
       people viewed your profile in the past 30 days
     </div>
 
     <div id='newJobs'>
-      New jobs from
+      New jobs from StreetEasy, RightClick, Opus Recruitment Sol
     </div>
   </div>
 
-
-<!--   <%if @networks%>
-    <%@pinky_friends = @networks[0].connected_ids_array.split(',').length%>
-  <%else%>
-    <%@pinky_friends = 0%>
-  <%end%> -->
-
-  <div class = "pinkies">
-    <h2><%= "Connections: #{@pinky_friends}" %></h2>
-  </div>
-
-  <%if @current_user == @user%>
+  <div id='shareChoice'>
     <div class ="new_message">
       <%= form_for @message, url: profile_page_newsfeed_path(@current_user), method: :post do |f| %>
         <div class ="message">
@@ -83,11 +73,63 @@
         </div>
       <%end%>
     </div>
+   <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
+  </div>
+
+  <%if @networks%>
+    <%@pinky_friends = @networks[0].connected_ids_array.split(',').length%>
   <%else%>
-    <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
+    <%@pinky_friends = 0%>
   <%end%>
 
-  <div class = "people-you-may-know" style = "">
+  <div class = "pinkies">
+    <h2><%= "Connections: #{@pinky_friends}" %></h2>
+  </div>
+
+  <div id='newsfeed'>
+
+  <%if @newsfeed%>
+    <%@newsfeed.each do |posts|%>
+
+      <div class='newsfeed-avatar'>
+        <% if posts.user.avatar.path == nil %>
+          <img src=<%=image_path("cat.png")%> />
+        <%else%>
+          <img src=<%= posts.user.avatar%> alt =<%= "avatar"%> />
+        <%end%>
+      </div>
+
+      <div class = "newsfeed-post">
+        <div class="newfeed-name">
+          <%="#{posts.user.first_name + " " + posts.user.last_name + ":"}"%>
+        <div>
+
+        <div class="newfeed-description">
+          <%=posts.description%>
+        </div>
+
+        <div class='newsfeed-like'>
+          <%if posts.liked_ids_array%>
+            <%=liked = posts.liked_ids_array.split(',')%>
+              <%if liked.length == 1%>
+                <%= "#{liked[0].user.first_name + " " +liked[0].user.last_name + "likes this."}"%>
+              <%elsif liked.length == 2%>
+                <%= "#{liked[0].user.first_name + " " + liked[0].user.last_name + " and " + liked[1].user.first_name + " " + liked[1].user.last_name + "likes this."}"%>
+              <%else%>
+                  <%="Likes (#{liked})"%>
+              <%end%>
+          <%else%>
+            <%="Likes (0)"%>
+          <%end%>
+        </div>
+      </div>
+
+    <%end%>
+  <%end%>
+  </div>
+
+
+<!--   <div class = "people-you-may-know" style = "">
     <%="People you may know"%>
     <%="List 3 people that are 2nd tier connected"%>
   </div>
@@ -96,41 +138,10 @@
     <%="10 people have new connections"%>
     <%="List new connections that youre connections have made by checking their network"%>
   </div>
-  </br>
+  </br> -->
   <%#insert likes/status updates/everything into newsfeed array%>
 
-  <%if @newsfeed%>
-    <%@newsfeed.each do |posts|%>
-        <div class = "newsfeed-post">
-          <li>
-            <% if posts.user.avatar.path == nil %>
-          <div>
-            <img src=<%=image_path("cat.png")%> />
-          </div>
-        <%else%>
-          <div>
-            <img src=<%= posts.user.avatar%> alt =<%= "avatar"%> />
-          </div>
-        <%end%>
-            <%="#{posts.user.first_name + " " + posts.user.last_name + ":"}"%>
-            <%=posts.description%>
-            <%if posts.liked_ids_array%>
-              <%=liked = posts.liked_ids_array.split(',')%>
-              <%if liked.length == 1%>
-                <%= "#{liked[0].user.first_name + " " +liked[0].user.last_name + "likes this."}"%>
-              <%elsif liked.length == 2%>
-                <%= "#{liked[0].user.first_name + " " + liked[0].user.last_name + " and " + liked[1].user.first_name + " " + liked[1].user.last_name + "likes this."}"%>
-              <%else%>
-                <%="Likes (#{liked})"%>
-              <%end%>
-            <%else%>
-              <%="Likes (0)"%>
-            <%end%>
 
-          </li>
-        </div>
-    <%end%>
-  <%end%>
 </div>
 </div>
 

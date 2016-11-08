@@ -2,6 +2,7 @@
   body { }
 </style>
 
+<%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
 
 
 <div class = "profile-info" style = "background: #F5F5F5; width: 600px; position:relative;margin: auto; left:-150px; padding: 20px;text-align:left;border-style: solid; border-color: #F0F0F0;border-radius: 5px;">
@@ -24,7 +25,7 @@
     <div class = "user-name" style ="position:relative;width:350px;left:175px; top:-150px;height:225px;background-color:#FFF;padding: 5px;border-style: solid;
     border-color: #F5D6F5;">
     <h2 style ="position:relative;left:10px">
-      <%= @profile_user.first_name + " " + @profile_user.last_name%>
+      <%= @user.first_name + " " + @user.last_name%>
     </h2>
       <%="From Rutgers University"%>
       </br>

@@ -339,7 +339,7 @@ ul li{
   display: inline-flex;
   padding: 10px;
   width: 370px;
-  height: 100px;
+  height: 105px;
   background-color:white;
   border-right: 1px solid #ddd;
   float:left;
@@ -393,7 +393,9 @@ ul li{
   background-color: white;
   width: 276px;
   display:inline-block;
-  height:100px;
+  height:105px;
+  position: relative;
+  font-size: 13px;
 }
 
 #profileViews, #newJobs{
@@ -401,6 +403,25 @@ ul li{
   height: 50px;
   clear: both;
   padding: 10px;
+}
+
+#profileViews:after{
+  content: "";
+  background: #ccc;
+  position: absolute;
+  bottom: 50%;
+  left: 22px;
+  height: 1px;
+  width: 230px;
+}
+
+#newsfeed-post{
+  display:inline-flex;
+
+}
+
+#newsfeed-avatar img{
+  width:75px;
 }
 
 @media screen and (max-width: 1050px) {
