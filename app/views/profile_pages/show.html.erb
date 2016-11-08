@@ -44,7 +44,7 @@
           <%if @user.experiences[0]%>
             <%=@user.experiences[0].title + " at " + @user.experiences[0].company_name%>
           <%else%>
-            <%='Newbie at Noobcorps'%>
+            <%=" "%>
           <%end%>
       </h3>
       <div id='improve'>
@@ -91,6 +91,8 @@
   <%if @newsfeed%>
     <%@newsfeed.each do |posts|%>
 
+    <div class='newsfeed-post'>
+
       <div class='newsfeed-avatar'>
         <% if posts.user.avatar.path == nil %>
           <img src=<%=image_path("cat.png")%> />
@@ -99,10 +101,20 @@
         <%end%>
       </div>
 
-      <div class = "newsfeed-post">
-        <div class="newfeed-name">
-          <%="#{posts.user.first_name + " " + posts.user.last_name + ":"}"%>
-        <div>
+      <div class = "newsfeed-info">
+
+        <div class="newsfeed-name">
+          <h1>
+            <%="#{posts.user.first_name + " " + posts.user.last_name}"%>
+          </h1>
+          <h2>
+            <%if posts.user.experiences[0]%>
+              <%="#{posts.user.experiences[0].title + " at " + posts.user.experiences[0].company_name}"%>
+            <%else%>
+              <%=" "%>
+            <%end%>
+          </h2>
+        </div>
 
         <div class="newfeed-description">
           <%=posts.description%>
@@ -122,7 +134,10 @@
             <%="Likes (0)"%>
           <%end%>
         </div>
+
       </div>
+
+    </div>
 
     <%end%>
   <%end%>

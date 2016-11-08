@@ -20,6 +20,8 @@ body{
 $nav-grey: #333333;
 $black-grey: #262626;
 $navy-blue: #006fa6;
+$link-blue: #008cc9;
+$dodg-blue: #2199d2;
 
 #lnrBorder{
   padding-left:150px;
@@ -415,13 +417,38 @@ ul li{
   width: 230px;
 }
 
-#newsfeed-post{
-  display:inline-flex;
+#newsfeed{
 
 }
 
-#newsfeed-avatar img{
-  width:75px;
+.newsfeed-post{
+  display:flex;
+  margin-bottom: 10px;
+}
+
+.newsfeed-info{
+  display:inline-block;
+  padding: 15px;
+  background-color: white;
+  margin-left: 5px;
+  width: calc(100% - 75px);
+}
+
+.newsfeed-avatar img{
+  width: 75px;
+}
+
+.newsfeed-name h1{
+  color: $dodg-blue;
+  font-size: 13px;
+  margin: 0;
+}
+
+.newsfeed-name h2{
+  color: #7c7f80;
+  font-size: 13px;
+  margin: 0;
+  font-weight: 400;
 }
 
 @media screen and (max-width: 1050px) {
