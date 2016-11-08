@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/assets/forgotpass.scss">
+</head>
+<body>
+
+<nav>
+  <div><img id="logo" src="/assets/minlogo.png"></div>
+  <%= render "devise/shared/links" %>
+</nav>
+
+<h2>Let's find your account</h2>
+
+<div id="centerBox">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+
+    <h3>Please enter your email</h3>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+  $('input[type=submit]').prop("disabled",true);
+
+  $('input[type=email]').keyup(function(){
+    var ln = $('input[type=email]').val();
+    if ( ln.length == 0 ){
+      $('input[type=submit]').prop("disabled",true).removeClass("blue");
+    }
+  });
+
+  $('input[type=email]').keydown(function(){
+    $('input[type=submit]').prop("disabled",false).addClass("blue");
+  })
+
+});
+</script>
+
+</body>
+</html>

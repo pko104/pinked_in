@@ -2,30 +2,88 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//animations
+
+@keyframes come-in {
+  to { transform: translateY(0); }
+}
+
+.come-in {
+  transform: translateY(-30px);
+  animation: come-in 1.5s ease forwards;
+}
+
 body{
-  background-image: image-url("front-page.jpeg");
-  background-position: 0px 70px;
+  background-color:#e7e9ec;
 }
 
 $nav-grey: #333333;
+$black-grey: #262626;
+$navy-blue: #006fa6;
 
-nav{
+#lnrBorder{
+  padding-left:150px;
+  padding-right:150px;
+}
+
+#lBorder{
+  width: 650px;
+}
+
+#mainNav{
+  height: 42px;
+  z-index:3;
+  position: relative;
+  overflow:hidden;
+  padding-left:150px;
+  padding-right:150px;
+  background-color: #3f3f3f;
+  background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  background-image: -moz-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  background-image: -o-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  box-shadow: 0px 5px 15px #222;
+}
+
+#subNav{
+  padding-left:150px;
+  padding-right:150px;
   display: block;
   list-style-type: none;
-  padding: 0;
-  background-color: $nav-grey;
-  height:70px;
+  background-color: $black-grey;
+  position: relative;
+  height:30px;
   width:100%;
-  margin:0px;
+  margin:0 0 0 0px;
+  color: white;
+  z-index:1;
+
+}
+
+#subNav li a{
+  background-color: transparent;
+  display: inline;
+  color: white;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 13px;
+  position: relative;
+  float: left;
+  left: 10px;
+  padding: 5px 0px;
+  padding-right: 20px;
+}
+
+#subNav li a:hover{
+  color: $navy-blue;
 }
 
 #logo{
   position: relative;
   margin: auto;
-  top:15px;
   text-align:left;
   padding-right: 200px;
-  padding-top: 5px;
+  padding-top: 2px;
 }
 
 #signUp{
@@ -268,5 +326,87 @@ ul li{
 #nav-align li{
   display:inline;
   padding: 10px;
+}
+
+.circle{
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+}
+
+#profileBox{
+  display: inline-flex;
+  padding: 10px;
+  width: 370px;
+  height: 100px;
+  background-color:white;
+  border-right: 1px solid #ddd;
+  float:left;
+}
+
+.box{
+  border-bottom: 1px solid #ddd;
+
+}
+
+#profileBox img{
+  width: 100%;
+}
+
+#nameDiv{
+  padding-left: 25px;
+}
+
+#nameDiv h2{
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+#nameDiv h3{
+  font-size: 13px;
+  margin-top: 7px;
+  font-weight: 400;
+}
+
+#improve{
+  border: 1px solid #008cc9;
+  border-radius: 3px;
+}
+
+#improve a{
+  text-transform: none;
+  color: #008cc9;
+  font-size: 12px;
+  font-weight: 400;
+  width: 150px;
+}
+
+#improve a:hover{
+  color: white;
+  background-color: #008cc9;
+}
+
+#rightProfileBox{
+  clear: both;
+  background-color: white;
+  width: 276px;
+  display:inline-block;
+  height:100px;
+}
+
+#profileViews, #newJobs{
+  width: 276px;
+  height: 50px;
+  clear: both;
+  padding: 10px;
+}
+
+@media screen and (max-width: 1050px) {
+    #mainNav, #subNav, #lnrBorder {
+      padding-left:  0;
+      padding-right: 0;
+    }
 }
 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/assets/signin.scss">
+</head>
+<body>
+
+<%= content_tag(:div, content_tag(:p, "Please correct the field(s) below", :class => "alert")) if flash[:alert] %>
+
+<div class="blur"></div>
+
+<div id="centerBox">
+
+  <div><img id="logo" src="/assets/blacklogo.png"></div>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <div class="errors">
+    <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+    <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+    </div>
+
+    <div class="field">
+      <%= devise_error_messages! %>
+      <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+      <%= render "devise/shared/links" %>
+      <span id='mem'>Not a member?</span>
+    </div>
+ <!--    <% if devise_mapping.rememberable? -%>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end -%> -->
+
+    <div class="actions" id="signIn">
+      <%= f.submit "Sign In" %>
+    </div>
+  <% end %>
+
+</div>
+
+
+<nav id='nav-bot'>
+  <div id='nav-align'>
+      <li><img src="/assets/link-tag.png">© 2016</li>
+      <li>User Agreement</li>
+      <li>Privacy Policy</li>
+      <li>Community Guidelines</li>
+      <li>Cookie Policy</li>
+      <li>Copyright Policy</li>
+      <li>Guest</li>
+      <li>Controls</li>
+      <li>Language</li>
+  </div>
+</nav>
+
+
+</body>
+</html>
