@@ -3,6 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/assets/main_profile.scss">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 </head>
 
 
@@ -52,6 +53,7 @@
       </div>
     </div>
   </div>
+
   <div id='rightProfileBox' class='box'>
     <div id='profileViews'>
       people viewed your profile in the past 30 days
@@ -62,18 +64,41 @@
     </div>
   </div>
 
+<!--
+     <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %> -->
+
+  <div id='threeChoices'>
+    <div id='firstChoice'>
+      <i class="fa fa-quote-left" aria-hidden="true"></i>
+      Share an update
+    </div>
+    <div id='secondChoice'>
+      Upload a photo
+    </div>
+    <div id='thirdChoice'>
+      Write an article
+    </div>
+  </div>
+
   <div id='shareChoice'>
-    <div class ="new_message">
+    <div class ="new-message">
       <%= form_for @message, url: profile_page_newsfeed_path(@current_user), method: :post do |f| %>
         <div class ="message">
           <%= f.text_area :description, placeholder: "Share an update", size: "100x1"%>
+
+          <select id='shareChoices'>
+            <option value="Pub">Share with: Public</option>
+            <option value="Con">Share with: Just Your connections</option>
+            <option value="PnT">Share with: Public + Twitter</option>
+          </select>
+
+          <div class = "share-button">
+            <%= f.submit  "Share", id: 'create-message', class: 'bluebutton'%>
+          </div>
         </div>
-        <div class = "share-button">
-          <%= f.submit  "Share", id: 'create-message'%>
-        </div>
+
       <%end%>
     </div>
-   <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
   </div>
 
   <%if @networks%>

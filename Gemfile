@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
+gem 'font-awesome-less'
 gem 'cowsay'
 gem "rack-timeout"
 gem 'unicorn'
