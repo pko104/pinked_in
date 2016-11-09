@@ -1,23 +1,24 @@
 http://pinked-in.herokuapp.com/
 
 Nov 8, 2016
--Share post CSS completed
+-Share post SASS completed
 -Font Awesome Gem added
 -Pushed to Heroku
+-Had trouble precompiling SASS to asset pipeline but made a change to assets.rb
 
 Nov 7, 2016
 -Fixed logic with the networks, there was a bug with connections overriding one another
 -Profile view css started
 
 Nov 1, 2016
--Newsfeed animation and CSS
+-Newsfeed animation and SASS
 
 Oct 26, 2016
 -Login page with rail error messages
 -Login page design completed
 
 Oct 18, 2016
--Front page design with SCSS finished
+-Front page design with SASS finished
 
 Oct 12, 2016
 -Continuation of LinkedIn Clone
