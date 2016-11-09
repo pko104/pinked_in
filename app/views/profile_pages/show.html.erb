@@ -8,12 +8,25 @@
 
 <body>
 
+  <nav id="mainNav">
+    <div><img id="logo" src="/assets/minlogo.png"></div>
+  </nav>
 
-<!--   <%=link_to "Their Profile", profile_page_profile_path(@user)%>
+  <nav id="subNav" class="come-in">
+    <li><%=link_to "Home", profile_page_path(@current_user)%></li>
+    <li><%=link_to "Profile", profile_page_profile_path(@current_user)%></li>
+    <li><a>My Network</a></li>
+    <li><a>Learning</a></li>
+    <li><a>Jobs</a></li>
+    <li><a>Interests</a></li>
+    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+  </nav>
+
+<!--   <%=link_to "Their Profile", profile_page_profile_path(@user)%>-->
 
   <div class= "sign-out">
-    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
-  </div> -->
+
+  </div>
 
 <div id="lnrBorder">
 <br> </br>

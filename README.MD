@@ -1,3 +1,28 @@
+http://pinked-in.herokuapp.com/
+
+Nov 8, 2016
+-Share post CSS completed
+-Font Awesome Gem added
+-Pushed to Heroku
+
+Nov 7, 2016
+-Fixed logic with the networks, there was a bug with connections overriding one another
+-Profile view css started
+
+Nov 1, 2016
+-Newsfeed animation and CSS
+
+Oct 26, 2016
+-Login page with rail error messages
+-Login page design completed
+
+Oct 18, 2016
+-Front page design with SCSS finished
+
+Oct 12, 2016
+-Continuation of LinkedIn Clone
+-Due to changes in the LinkedIn website, must change landing page/loading page
+
 February 3, 2015
 -Started conceptualizing how LinkedIn works in order to recreate it using Ruby on Rails
 -Used devise user for omniauth LinkedIn
