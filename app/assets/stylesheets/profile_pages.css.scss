@@ -187,8 +187,8 @@ a:link, a:visited {
   width:100%;
   margin:0px;
   height: 275px;
-  position:relative;
-  bottom: 0;
+  position: absolute;
+  bottom: 65pxß;
 }
 
 #search{
@@ -257,7 +257,7 @@ ul li{
   width:100%;
   background-color: black;
   height: 65px;
-  position:relative;
+  position: absolute;
   bottom: 0;
 }
 
