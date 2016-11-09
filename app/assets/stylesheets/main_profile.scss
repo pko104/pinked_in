@@ -15,6 +15,8 @@
 
 body{
   background-color:#e7e9ec;
+  color: #66696a;
+
 }
 
 $nav-grey: #333333;
@@ -414,6 +416,7 @@ ul li{
   font-size: 12px;
   font-weight: 400;
   width: 150px;
+  cursor:pointer;
 }
 
 #improve a:hover{
@@ -509,11 +512,54 @@ ul li{
 
 #threeChoices{
   width: 650px;
-  height: 40px;
+  height: 50px;
   background-color: #f1f3f5;
   display:inline-flex;
 }
 
+#firstChoice,#secondChoice,#thirdChoice{
+  width:217px;
+  background-color: white;
+  padding: 8px;
+}
+
+#firstChoice:hover,#secondChoice:hover,#thirdChoice:hover{
+  background-color: #f1f3f5;
+  cursor:pointer;
+}
+
+#firstChoice,#secondChoice{
+  border-right: 1px solid #ccc;
+}
+
+.choices{
+  position:relative;
+  font-size: 24px;
+  padding-left: 30px;
+  padding-right: 8px;
+  top:5px;
+}
+
+#faFirst{
+  color: #8c6baa;
+}
+
+#faSecond{
+  color: #7bb72e;
+}
+
+#faThird{
+  color: #e58422;
+}
+
+.selected{
+  background-color: #f1f3f5 !important;
+}
+
+.unselected{
+  color: #6b6b6b !important;
+  background-color: #dfe1e3 !important;
+}
 
 @media screen and (max-width: 1050px) {
     #mainNav, #subNav, #lnrBorder {

@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
-gem 'font-awesome-less'
+gem 'font-awesome-sass'
 gem 'cowsay'
 gem "rack-timeout"
 gem 'unicorn'
@@ -29,6 +29,8 @@ gem 'carrierwave'
 gem 'fog'
 gem 'rails_12factor', group: :production
 
+gem "twitter-bootstrap-rails"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -47,4 +49,3 @@ gem 'launchy', group: [:development, :test]
 gem 'factory_girl', group: [:development, :test]
 gem 'valid_attribute', group: [:development, :test]
 gem 'shoulda-matchers', group: [:development, :test], require: false
-gem 'foundation-rails'
