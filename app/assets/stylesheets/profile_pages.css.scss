@@ -5,6 +5,7 @@
 body{
   background-image: image-url("front-page.jpeg");
   background-position: 0px 70px;
+  background-size:100%;
 }
 
 $nav-grey: #333333;
@@ -186,6 +187,8 @@ a:link, a:visited {
   width:100%;
   margin:0px;
   height: 275px;
+  position:relative;
+  bottom: 0;
 }
 
 #search{
@@ -254,6 +257,8 @@ ul li{
   width:100%;
   background-color: black;
   height: 65px;
+  position:relative;
+  bottom: 0;
 }
 
 #nav-align{
