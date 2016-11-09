@@ -8,14 +8,7 @@
 
 <body>
 
-  <nav id="mainNav">
-    <div><img id="logo" src="/assets/minlogo.png"></div>
-  </nav>
 
-  <nav id="subNav" class="come-in">
-    <li><%=link_to "Home", profile_page_path(@current_user)%></li>
-    <li><%=link_to "Profile", profile_page_profile_path(@current_user)%></li>
-  </nav>
 <!--   <%=link_to "Their Profile", profile_page_profile_path(@user)%>
 
   <div class= "sign-out">
@@ -55,11 +48,11 @@
 
   <div id='rightProfileBox' class='box'>
     <div id='profileViews'>
-      people viewed your profile in the past 30 days
+      <div class='faProf'>11</div> people viewed your profile in the past 30 days
     </div>
 
     <div id='newJobs'>
-      New jobs from StreetEasy, RightClick, Opus Recruitment Sol
+      <i class="fa fa-suitcase faProf" aria-hidden="true"></i> New jobs from StreetEasy, RightClick, Opus Recruitment Sol
     </div>
   </div>
 
@@ -85,7 +78,7 @@
     <div class ="new-message">
       <%= form_for @message, url: profile_page_newsfeed_path(@current_user), method: :post do |f| %>
         <div class ="message">
-          <%= f.text_area :description, placeholder: "Share an update", size: "100x1"%>
+          <%= f.text_area :description, placeholder: "What's on your mind?", size: "100x1"%>
 
           <select id='shareChoices'>
             <option value="Pub">Share with: Public</option>

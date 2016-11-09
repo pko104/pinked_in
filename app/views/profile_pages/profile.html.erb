@@ -1,266 +1,273 @@
-<style>
-  body { }
-</style>
+
 
 <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
 
 
-<div class = "profile-info" style = "background: #F5F5F5; width: 600px; position:relative;margin: auto; left:-150px; padding: 20px;text-align:left;border-style: solid; border-color: #F0F0F0;border-radius: 5px;">
-<div class = "main-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;
-    border-color: #F5D6F5;height: 250px">
-    <%= form_for(@user) do |f| %>
-    <div class="divbutton" style ="width:150px;height:150px">
-      <% if @user.avatar.path == nil %>
-        <div>
-          <img src=<%=image_path("cat.png")%> />
-        </div>
-      <%else%>
-        <div>
-          <img src=<%= @user.avatar%> alt =<%= "avatar"%> />
-        </div>
-      <%end%>
-      <button id="avatar-uploader" type="button" style ="position:relative;top: -30px; left:10px">Edit Profile Picture</button>
-    </div>
 
-    <div class = "user-name" style ="position:relative;width:350px;left:175px; top:-150px;height:225px;background-color:#FFF;padding: 5px;border-style: solid;
-    border-color: #F5D6F5;">
-    <h2 style ="position:relative;left:10px">
-      <%= @user.first_name + " " + @user.last_name%>
-    </h2>
-      <%="From Rutgers University"%>
-      </br>
-      <%="Lives in Bogota, NJ"%>
-      </br>
-      <%="Likes Cats"%>
-    </div>
+<div id="lnrBorder">
+  <div id ="lBorder">
 
-   <%end%>
-</div>
+    <div class = "profile-info" style = "background: #F5F5F5; position:relative;margin: auto; padding: 20px;text-align:left;border-style: solid; border-color: #F0F0F0;border-radius: 5px;">
 
-  </br>
-
-<div class="divbutton">
-  <div class = "profile-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;
-    border-color: #F5D6F5;">
-    <h4><%="Summary"%></h4>
-
-      <%if @profile_user == @user%>
-        <button id="summary-opener" type="button">Add Summary</button>
-      <%end%>
-
-      <%if @summary%>
-        <div class = "current-summary" style ="background: #FFFFFF;padding: 20px;">
-            <%=@summary.description%>
-        </div>
-      <%end%>
-      </br>
-
-      <div class = "new_summary">
-        <%if @user == @profile_user%>
-          <%=form_for @new_summary do |f|%>
-            <%= f.text_area :description, size: "60x10" %>
-            <div class = "submit-summary">
-              <%= f.submit "Submit"%>
-              <button id="summary-closer">Close</button>
+      <div class = "main-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;
+          border-color: #F5D6F5;height: 250px">
+          <%= form_for(@user) do |f| %>
+        <div class="divbutton" style ="width:150px;height:150px">
+          <% if @user.avatar.path == nil %>
+            <div>
+              <img src=<%=image_path("cat.png")%> />
+            </div>
+          <%else%>
+            <div>
+              <img src=<%= @user.avatar%> alt =<%= "avatar"%> />
             </div>
           <%end%>
+          <button id="avatar-uploader" type="button" style ="position:relative;top: -30px; left:10px">Edit Profile Picture</button>
+        </div>
+
+        <div class = "user-name" style ="position:relative;width:350px;left:175px; top:-150px;height:225px;background-color:#FFF;padding: 5px;border-style: solid;
+        border-color: #F5D6F5;">
+          <h2 style ="position:relative;left:10px">
+            <%= @user.first_name + " " + @user.last_name%>
+          </h2>
+            <%="From Rutgers University"%>
+            </br>
+            <%="Lives in Bogota, NJ"%>
+            </br>
+            <%="Likes Cats"%>
+        </div>
         <%end%>
+
       </div>
-  </div>
-</div>
 
+      </br>
 
-  </br>
+       <div class = "profile-box" style = "background: #F5E5F5;padding: 10px;border-style: solid;
+        border-color: #F5D6F5;">
+        <h4><%="Summary"%></h4>
 
+          <%if @profile_user == @user%>
+            <button id="summary-opener" type="button">Add Summary</button>
+          <%end%>
 
-  <div class="divbutton">
+          <%if @summary%>
+            <div class = "current-summary" style ="background: #FFFFFF;padding: 20px;">
+                <%=@summary.description%>
+            </div>
+          <%end%>
+          </br>
 
-  <div class = "experiences" style = "background: #F5E5F5;padding: 10px;border-style: solid;
-    border-color: #F5D6F5;">
-    <h4><%="Experiences"%></h4>
-
-      <%if @profile_user == @user%>
-        <button id="experience-opener">Add Experience</button>
-      <%end%>
-
-      <%if @experiences%>
-        <%@experiences.each do |e|%>
-          <div class = "current-experience" style ="background: #FFFFFF;padding: 20px;">
-            <%="Title: #{e.title}"%>
-            </br>
-            <%="Company Name: #{e.company_name}"%>
-            </br>
-            <%="Date: #{e.date}"%>
-            </br>
-            <%="Description:"%>
-            </br>
-            <%=e.description%>
+          <div class = "new_summary">
+            <%if @user == @profile_user%>
+              <%=form_for @new_summary do |f|%>
+                <%= f.text_area :description, size: "60x10" %>
+                <div class = "submit-summary">
+                  <%= f.submit "Submit"%>
+                  <button id="summary-closer">Close</button>
+                </div>
+              <%end%>
+            <%end%>
           </div>
-          </br>
-        <%end%>
-      <%end%>
-      <div class = "new-experience">
-        <%if @user == @profile_user%>
-          <%=form_for @new_experience do |f|%>
-            <%= f.label :title%>
-            <%= f.text_field :title%>
-            <%= f.label :company_name%>
-            <%= f.text_field :company_name%>
-            <%= f.label :date%>
-            <%= f.text_field :date%>
-            </br>
-            <%= f.label :description%>
-            </br>
-            <%= f.text_area :description, size: "60x10" %>
-            <div class = "submit-experience">
-              <%= f.submit "Submit"%>
-              <button id="experience-closer">Close</button>
-            </div>
+
+        </div>
+
+
+
+      </br>
+
+
+
+      <div class = "experiences" style = "background: #F5E5F5;padding: 10px;border-style: solid;
+        border-color: #F5D6F5;">
+        <h4><%="Experiences"%></h4>
+
+          <%if @profile_user == @user%>
+            <button id="experience-opener">Add Experience</button>
           <%end%>
-        <%end%>
-      </div>
-    </div>
-  </div>
 
-  </br>
-
-  <div class="divbutton">
-    <div class = "projects" style = " background: #F5E5F5;padding: 10px;border-style: solid;
-      border-color: #F5D6F5;">
-      <h4><%="Projects"%></h4>
-        <%if @profile_user == @user%>
-          <button id="project-opener">Add Project</button>
-        <%end%>
-        <%if @projects%>
-          <%@projects.each do |p|%>
-            <div class = "current-project" style ="background: #FFFFFF;padding: 20px;">
-              <%="Title: #{p.title}"%>
-              </br>
-              <%="Description:"%>
-              </br>
-              <%=p.description%>
-            </div>
-          <%end%>
-          </br>
-        <%end%>
-      <div class = "new-project">
-        <%if @user == @profile_user%>
-          <%=form_for @new_project do |f|%>
-            <%= f.label :title%>
-            <%= f.text_field :title%>
-            </br>
-            <%= f.label :description%>
-            </br>
-            <%= f.text_area :description, size: "60x10" %>
-            <%= f.submit "Submit"%>
-            <button id="project-closer">Close</button>
-          <%end%>
-        <%end%>
-      </div>
-    </div>
-  </div>
-
-  </br>
-
-  <div class="divbutton">
-    <div class = "languages" style = " background: #F5E5F5;padding: 10px;border-style: solid;
-      border-color: #F5D6F5;">
-      <h4><%="Languages"%></h4>
-        <%if @profile_user == @user%>
-          <button id="language-opener">Add Language</button>
-        <%end%>
-        <%if @languages%>
-            <%@languages.each do |lang|%>
-              <div class = "current-language" style ="background: #FFFFFF;padding: 20px;">
-                <%="Name: #{lang.name}"%>
+          <%if @experiences%>
+            <%@experiences.each do |e|%>
+              <div class = "current-experience" style ="background: #FFFFFF;padding: 20px;">
+                <%="Title: #{e.title}"%>
                 </br>
-                <%="Proficiency: #{lang.proficiency}"%>
+                <%="Company Name: #{e.company_name}"%>
                 </br>
+                <%="Date: #{e.date}"%>
+                </br>
+                <%="Description:"%>
+                </br>
+                <%=e.description%>
               </div>
-            <%end%>
-          </br>
-        <%end%>
-        <div class = "new-language">
-          <%if @user == @profile_user%>
-            <%=form_for @new_language do |f|%>
-              <%= f.label :name%>
-              <%= f.text_field :name%>
-              <%= f.label :proficiency%>
-              <%= f.text_field :proficiency%>
-              <%= f.submit "Submit"%>
-              <button id="language-closer">Close</button>
-            <%end%>
-          <%end%>
-        </div>
-    </div>
-  </div>
-
-  </br>
-
-
-  <div class="divbutton">
-    <div class = "skills" style = " background: #F5E5F5;padding: 10px;border-style: solid;
-      border-color: #F5D6F5;">
-      <h4><%="Skills & Endorsements"%></h4>
-      <%if @profile_user == @user%>
-        <button id="skill-opener">Add Skill</button>
-      <%end%>
-        <%if @skills%>
-          <%@skills.each do |skill|%>
-            <div class = "current-skill" style ="background: #FFFFFF;padding: 10px;">
-              <%=skill.name_of_skill%>
-            </div>
-          <%end%>
-          </br>
-        <%end%>
-        <div class = "new-skill">
-          <%if @user == @profile_user%>
-            <%=form_for @new_skill do |f|%>
-              <%= f.label :name_of_skill%>
-              <%= f.text_field :name_of_skill, size: "40x10" %>
-              <%= f.submit "Submit"%>
-              <button id="skill-closer">Close</button>
-            <%end%>
-          <%end%>
-        </div>
-    </div>
-  </div>
-
-  </br>
-
-  <div class="divbutton">
-    <div class = "education" style = "background: #F5E5F5;padding: 10px;border-style: solid;
-      border-color: #F5D6F5;">
-      <h4><%="Education"%></h4>
-        <%if @profile_user == @user%>
-          <button id="education-opener">Add Education</button>
-        <%end%>
-        <%if @educations%>
-          <%@educations.each do |ed|%>
-            <div class = "current-education" style ="background: #FFFFFF;padding: 10px;">
-              <%="School: #{ed.school}"%>
               </br>
-              <%="Degree: #{ed.degree}"%>
-              </br>
-              <%="Date: #{ed.date}"%>
-            </div>
+            <%end%>
           <%end%>
-          </br>
-        <%end%>
-      <div class = "new-education">
-        <%if @user == @profile_user%>
-          <%=form_for @new_education do |f|%>
-            <%= f.label :school%>
-            <%= f.text_field :school%>
-            <%= f.label :degree%>
-            <%= f.text_field :degree%>
-            <%= f.label :date%>
-            <%= f.text_field :date%>
-            <%= f.submit "Submit"%>
-            <button id="education-closer">Close</button>
-          <%end%>
-        <%end%>
+
+          <div class = "new-experience">
+            <%if @user == @profile_user%>
+              <%=form_for @new_experience do |f|%>
+                <%= f.label :title%>
+                <%= f.text_field :title%>
+                <%= f.label :company_name%>
+                <%= f.text_field :company_name%>
+                <%= f.label :date%>
+                <%= f.text_field :date%>
+                </br>
+                <%= f.label :description%>
+                </br>
+                <%= f.text_area :description, size: "60x10" %>
+                <div class = "submit-experience">
+                  <%= f.submit "Submit"%>
+                  <button id="experience-closer">Close</button>
+                </div>
+              <%end%>
+            <%end%>
+          </div>
+
       </div>
+
+
+      </br>
+
+      <div class="divbutton">
+        <div class = "projects" style = " background: #F5E5F5;padding: 10px;border-style: solid;
+          border-color: #F5D6F5;">
+          <h4><%="Projects"%></h4>
+            <%if @profile_user == @user%>
+              <button id="project-opener">Add Project</button>
+            <%end%>
+            <%if @projects%>
+              <%@projects.each do |p|%>
+                <div class = "current-project" style ="background: #FFFFFF;padding: 20px;">
+                  <%="Title: #{p.title}"%>
+                  </br>
+                  <%="Description:"%>
+                  </br>
+                  <%=p.description%>
+                </div>
+              <%end%>
+              </br>
+            <%end%>
+          <div class = "new-project">
+            <%if @user == @profile_user%>
+              <%=form_for @new_project do |f|%>
+                <%= f.label :title%>
+                <%= f.text_field :title%>
+                </br>
+                <%= f.label :description%>
+                </br>
+                <%= f.text_area :description, size: "60x10" %>
+                <%= f.submit "Submit"%>
+                <button id="project-closer">Close</button>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+
+      </br>
+
+      <div class="divbutton">
+        <div class = "languages" style = " background: #F5E5F5;padding: 10px;border-style: solid;
+          border-color: #F5D6F5;">
+          <h4><%="Languages"%></h4>
+            <%if @profile_user == @user%>
+              <button id="language-opener">Add Language</button>
+            <%end%>
+            <%if @languages%>
+                <%@languages.each do |lang|%>
+                  <div class = "current-language" style ="background: #FFFFFF;padding: 20px;">
+                    <%="Name: #{lang.name}"%>
+                    </br>
+                    <%="Proficiency: #{lang.proficiency}"%>
+                    </br>
+                  </div>
+                <%end%>
+              </br>
+            <%end%>
+            <div class = "new-language">
+              <%if @user == @profile_user%>
+                <%=form_for @new_language do |f|%>
+                  <%= f.label :name%>
+                  <%= f.text_field :name%>
+                  <%= f.label :proficiency%>
+                  <%= f.text_field :proficiency%>
+                  <%= f.submit "Submit"%>
+                  <button id="language-closer">Close</button>
+                <%end%>
+              <%end%>
+            </div>
+        </div>
+      </div>
+
+      </br>
+
+
+      <div class="divbutton">
+        <div class = "skills" style = " background: #F5E5F5;padding: 10px;border-style: solid;
+          border-color: #F5D6F5;">
+          <h4><%="Skills & Endorsements"%></h4>
+          <%if @profile_user == @user%>
+            <button id="skill-opener">Add Skill</button>
+          <%end%>
+            <%if @skills%>
+              <%@skills.each do |skill|%>
+                <div class = "current-skill" style ="background: #FFFFFF;padding: 10px;">
+                  <%=skill.name_of_skill%>
+                </div>
+              <%end%>
+              </br>
+            <%end%>
+            <div class = "new-skill">
+              <%if @user == @profile_user%>
+                <%=form_for @new_skill do |f|%>
+                  <%= f.label :name_of_skill%>
+                  <%= f.text_field :name_of_skill, size: "40x10" %>
+                  <%= f.submit "Submit"%>
+                  <button id="skill-closer">Close</button>
+                <%end%>
+              <%end%>
+            </div>
+        </div>
+      </div>
+
+      </br>
+
+      <div class="divbutton">
+        <div class = "education" style = "background: #F5E5F5;padding: 10px;border-style: solid;
+          border-color: #F5D6F5;">
+          <h4><%="Education"%></h4>
+            <%if @profile_user == @user%>
+              <button id="education-opener">Add Education</button>
+            <%end%>
+            <%if @educations%>
+              <%@educations.each do |ed|%>
+                <div class = "current-education" style ="background: #FFFFFF;padding: 10px;">
+                  <%="School: #{ed.school}"%>
+                  </br>
+                  <%="Degree: #{ed.degree}"%>
+                  </br>
+                  <%="Date: #{ed.date}"%>
+                </div>
+              <%end%>
+              </br>
+            <%end%>
+          <div class = "new-education">
+            <%if @user == @profile_user%>
+              <%=form_for @new_education do |f|%>
+                <%= f.label :school%>
+                <%= f.text_field :school%>
+                <%= f.label :degree%>
+                <%= f.text_field :degree%>
+                <%= f.label :date%>
+                <%= f.text_field :date%>
+                <%= f.submit "Submit"%>
+                <button id="education-closer">Close</button>
+              <%end%>
+            <%end%>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-
+</div>

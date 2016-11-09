@@ -10,3 +10,106 @@
 @import "font-awesome";
 
 /*  COLORS  */
+
+body{
+  background-color:#e7e9ec;
+  color: #66696a;
+}
+
+$nav-grey: #333333;
+$black-grey: #262626;
+$navy-blue: #006fa6;
+$link-blue: #008cc9;
+$dodg-blue: #2199d2;
+
+#lnrBorder{
+  padding-left:150px;
+  padding-right:150px;
+}
+
+#lBorder{
+  width: 650px;
+}
+
+@keyframes come-in {
+  to { transform: translateY(0); }
+}
+
+.come-in {
+  transform: translateY(-30px);
+  animation: come-in 1.5s ease forwards;
+}
+
+#mainNav{
+  height: 42px;
+  z-index:3;
+  position: relative;
+  overflow:hidden;
+  padding-left:150px;
+  padding-right:150px;
+  background-color: #3f3f3f;
+  background-image: -webkit-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  background-image: -moz-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  background-image: -o-linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  background-image: linear-gradient(top, #696969 0%,#3f3f3f 100%);
+  box-shadow: 0px 5px 15px #222;
+}
+
+#subNav{
+  padding-left:150px;
+  padding-right:150px;
+  display: block;
+  list-style-type: none;
+  background-color: $black-grey;
+  position: relative;
+  height:30px;
+  width:100%;
+  margin:0 0 0 0px;
+  color: white;
+  z-index:1;
+
+}
+
+#subNav li a{
+  background-color: transparent;
+  display: inline;
+  color: white;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 13px;
+  position: relative;
+  float: left;
+  left: 10px;
+  padding: 7px 0px;
+  padding-right: 30px;
+}
+
+#subNav li a:hover{
+  color: $navy-blue;
+}
+
+#logo{
+  position: relative;
+  margin: auto;
+  text-align:left;
+  padding-right: 200px;
+  padding-top: 2px;
+}
+
+#signUp{
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  width: 800px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1050px) {
+    #mainNav, #subNav, #lnrBorder {
+      padding-left:  0;
+      padding-right: 0;
+    }
+}

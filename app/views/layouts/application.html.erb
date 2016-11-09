@@ -9,6 +9,20 @@
 </head>
 <body>
 
+  <nav id="mainNav">
+    <div><img id="logo" src="/assets/minlogo.png"></div>
+  </nav>
+
+  <nav id="subNav" class="come-in">
+    <li><%=link_to "Home", profile_page_path(@current_user)%></li>
+    <li><%=link_to "Profile", profile_page_profile_path(@current_user)%></li>
+    <li><a>My Network</a></li>
+    <li><a>Learning</a></li>
+    <li><a>Jobs</a></li>
+    <li><a>Interests</a></li>
+  </nav>
+
+
 <%= yield %>
 
 </body>
