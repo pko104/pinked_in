@@ -33,42 +33,43 @@
   </ul>
 </nav>
 
+<div id="centerBlock">
+  <div id="centerBox">
+    <h1 class="title">Be great at what you do</h1>
+    <h2 class="title">Get started - it's free.</h2>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-<div id="centerBox">
-  <h1 class="title">Be great at what you do</h1>
-  <h2 class="title">Get started - it's free.</h2>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+        <div>
+          <h3 class ="text-field">First Name</h3>
+          <%= f.text_field :first_name,:size => "45x30"%>
+        </div>
 
-      <div>
-        <h3 class ="text-field">First Name</h3>
-        <%= f.text_field :first_name,:size => "45x30"%>
-      </div>
+        <div>
+          <h3 class ="text-field">Last Name</h3>
+          <%= f.text_field :last_name, :size => "30x30"%>
+        </div>
 
-      <div>
-        <h3 class ="text-field">Last Name</h3>
-        <%= f.text_field :last_name, :size => "30x30"%>
-      </div>
+        <div>
+          <h3 class ="text-field">Email</h3>
+          <%= f.email_field :email, :size => "60x30"%>
+        </div>
 
-      <div>
-        <h3 class ="text-field">Email</h3>
-        <%= f.email_field :email, :size => "60x30"%>
-      </div>
+        <div>
+          <h3 class ="text-field">Password (6 or more characters)</h3>
+          <%= f.password_field :password, :size => "60x30"%>
+        </div>
 
-      <div>
-        <h3 class ="text-field">Password (6 or more characters)</h3>
-        <%= f.password_field :password, :size => "60x30"%>
-      </div>
+        <h3 id="disclaimer" class="text-field">
+          By clicking Join Now, you agree to LinkedIn's User Agreement, Privacy Policy and Cookie Policy.
+        </h3>
 
-      <h3 id="disclaimer" class="text-field">
-        By clicking Join Now, you agree to LinkedIn's User Agreement, Privacy Policy and Cookie Policy.
-      </h3>
+        <div class ="box">
+          <%= f.submit "Join now" %>
+        </div>
 
-      <div class ="box">
-        <%= f.submit "Join now" %>
-      </div>
-
-    <%end%>
+      <%end%>
+  </div>
 </div>
 
 <div id="footer">
@@ -159,7 +160,7 @@
     </div>
   </div>
 
-</div>
+
 
 <nav id='nav-bot'>
   <div id='nav-align'>
@@ -174,6 +175,8 @@
       <li>Language</li>
   </div>
 </nav>
+
+</div>
 
 </body>
 </html>
