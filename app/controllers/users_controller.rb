@@ -33,6 +33,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def live_notifications
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def user_params

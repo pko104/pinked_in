@@ -57,7 +57,7 @@ class ProfilePagesController < ApplicationController
     if @newsfeed
     @newsfeed = @newsfeed.sort_by{ |k| k["created_at"]}.reverse
     end
-    #binding.pry
+
     @message = Message.new
   end
 
@@ -81,22 +81,32 @@ class ProfilePagesController < ApplicationController
   end
 
   def newsfeed
+    # binding.pry
+
     @current_user = current_user
     @message = Message.new(message_params)
     @message.network_id = @current_user.network_id
     @message.user_id = @current_user.id
 
+
+    # if @message.save
+    #   respond_to do |format|
+    #     format.html { redirect_to profile_page_path(@current_user), notice: "Message Posted!"}
+    #     format.json { render :json => @message.to_json }
+    #   end
+    # else
+    #   respond_to do |format|
+    #     format.html { render 'new' }
+    #     format.json
+    #   end
+    # end
+
     if @message.save
-      respond_to do |format|
-        format.html { redirect_to profile_page_path(@current_user), notice: "Message Posted!" }
-        format.json { render :show }
-      end
+      render :json => @message.to_json
     else
-      respond_to do |format|
-        format.html { render 'new' }
-        format.json
-      end
+      render :json => [{ :error => "An error was encountered while processing your photos. Please try again." }], :status => 304
     end
+
   end
 
   def pink_in
@@ -129,7 +139,8 @@ class ProfilePagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:description)
+    params.require(:message).permit(:description,:html)
+
   end
 
 

@@ -4,14 +4,20 @@ Rails.application.routes.draw do
   root 'profile_pages#index'
 
 
+  get 'users/:id/live_notifications' => 'users#live_notifications'
+
   devise_for :users
   resources :users
 
   resources :profile_pages do
-    post 'newsfeed'
-    post 'pink_in'
-    get 'profile'
+    member do
+      post 'newsfeed'
+      post 'pink_in'
+      get 'profile'
+    end
   end
+
+  # patch 'profile_pages/:id/newsfeed' => 'profile_pages#newsfeed', as: :profile_page_newsfeed
 
   resources :summaries, only: [:create, :update, :destroy]
   resources :experiences, only: [:create, :update, :destroy]

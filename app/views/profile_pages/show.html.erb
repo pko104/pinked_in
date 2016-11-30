@@ -3,6 +3,9 @@
 <head>
     <meta name="viewport" content="width=device-width,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/assets/main_profile.css.scss">
+    <script src="http://cdn.embed.ly/jquery.embedly-3.0.5.min.js" type="text/javascript"></script>
+    <script src="http://cdn.embed.ly/jquery.preview-0.3.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="http://cdn.embed.ly/jquery.preview-0.3.2.css" />
 </head>
 
 
@@ -14,15 +17,16 @@
 
   <nav id="subNav" class="come-in">
     <li><%=link_to "Home", profile_page_path(@current_user)%></li>
-    <li><%=link_to "Profile", profile_page_profile_path(@current_user)%></li>
+    <li><%=link_to "Profile", profile_profile_page_path(@current_user)%></li>
     <li><a>My Network</a></li>
     <li><a>Learning</a></li>
     <li><a>Jobs</a></li>
     <li><a>Interests</a></li>
     <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+    <li><%= link_to "Pink In!", pink_in_profile_page_path(@user), :method =>:post %></li>
   </nav>
 
-<!--   <%=link_to "Their Profile", profile_page_profile_path(@user)%>-->
+<!--   <%=link_to "Their Profile", profile_profile_page_path(@user)%>-->
 
   <div class= "sign-out">
 
@@ -54,7 +58,7 @@
           <%end%>
       </h3>
       <div id='improve'>
-        <%=link_to "Improve your profile", profile_page_profile_path(@current_user)%>
+        <%=link_to "Improve your profile", profile_profile_page_path(@current_user)%>
       </div>
     </div>
   </div>
@@ -70,7 +74,7 @@
   </div>
 
 <!--
-     <%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %> -->
+     <%= link_to "Pink In!", pink_in_profile_page_path(@user), :method =>:post %> -->
 
   <div id='threeChoices'>
     <div id='firstChoice'>
@@ -89,10 +93,10 @@
 
   <div id='shareChoice'>
     <div class ="new-message">
-      <%= form_for @message, url: profile_page_newsfeed_path(@current_user), method: :post do |f| %>
+      <%= form_for @message, html: {'data-user' => @current_user.id}, url: newsfeed_profile_page_path(@current_user), method: :post do |f| %>
         <div class ="message">
-          <%= f.text_area :description, placeholder: "What's on your mind?", size: "100x1"%>
-
+          <%= f.text_area :description,  placeholder: "What's on your mind?", size: "100x1" %>
+          <div class="selector-wrapper"></div>
           <select id='shareChoices'>
             <option value="Pub">Share with: Public</option>
             <option value="Con">Share with: Just Your connections</option>
@@ -148,8 +152,11 @@
           </h2>
         </div>
 
-        <div class="newfeed-description">
+        <div class="newsfeed-description">
           <%=posts.description%>
+          <%if posts.html%>
+            <%=posts.html.html_safe%>
+          <%end%>
         </div>
 
         <div class='newsfeed-like'>

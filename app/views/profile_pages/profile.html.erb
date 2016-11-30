@@ -1,6 +1,6 @@
 
 
-<%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %>
+
 <nav id="mainNav">
     <div><img id="logo" src="/assets/minlogo.png"></div>
   </nav>
@@ -13,11 +13,13 @@
     <li><a>Jobs</a></li>
     <li><a>Interests</a></li>
     <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+    <li><%= link_to "Pink In!", profile_page_pink_in_path(@user), :method =>:post %></li>
   </nav>
 
 
 <div id="lnrBorder">
   <div id ="lBorder">
+
 
     <div class = "profile-info" style = "background: #F5F5F5; position:relative;margin: auto; padding: 20px;text-align:left;border-style: solid; border-color: #F0F0F0;border-radius: 5px;">
 
