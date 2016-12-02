@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
 
-
   root 'profile_pages#index'
-
-
-  get 'users/:id/live_notifications' => 'users#live_notifications'
 
   devise_for :users
   resources :users
@@ -14,6 +10,7 @@ Rails.application.routes.draw do
       post 'newsfeed'
       post 'pink_in'
       get 'profile'
+      get 'live_notifications'
     end
   end
 

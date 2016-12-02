@@ -123,63 +123,7 @@
   </div>
 
   <div id='newsfeed'>
-
-  <%if @newsfeed%>
-    <%@newsfeed.each do |posts|%>
-
-    <div class='newsfeed-post'>
-
-      <div class='newsfeed-avatar'>
-        <% if posts.user.avatar.path == nil %>
-          <img src=<%=image_path("cat.png")%> />
-        <%else%>
-          <img src=<%= posts.user.avatar%> alt =<%= "avatar"%> />
-        <%end%>
-      </div>
-
-      <div class = "newsfeed-info">
-
-        <div class="newsfeed-name">
-          <h1>
-            <%="#{posts.user.first_name + " " + posts.user.last_name}"%>
-          </h1>
-          <h2>
-            <%if posts.user.experiences[0]%>
-              <%="#{posts.user.experiences[0].title + " at " + posts.user.experiences[0].company_name}"%>
-            <%else%>
-              <%=" "%>
-            <%end%>
-          </h2>
-        </div>
-
-        <div class="newsfeed-description">
-          <%=posts.description%>
-          <%if posts.html%>
-            <%=posts.html.html_safe%>
-          <%end%>
-        </div>
-
-        <div class='newsfeed-like'>
-          <%if posts.liked_ids_array%>
-            <%=liked = posts.liked_ids_array.split(',')%>
-              <%if liked.length == 1%>
-                <%= "#{liked[0].user.first_name + " " +liked[0].user.last_name + "likes this."}"%>
-              <%elsif liked.length == 2%>
-                <%= "#{liked[0].user.first_name + " " + liked[0].user.last_name + " and " + liked[1].user.first_name + " " + liked[1].user.last_name + "likes this."}"%>
-              <%else%>
-                  <%="Likes (#{liked})"%>
-              <%end%>
-          <%else%>
-            <%="Likes (0)"%>
-          <%end%>
-        </div>
-
-      </div>
-
-    </div>
-
-    <%end%>
-  <%end%>
+    <%= render 'live_notifications', user: @user, current_user: @current_user %>
   </div>
 
 

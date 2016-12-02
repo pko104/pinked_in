@@ -12,9 +12,26 @@ $(document).ready(function(){
     else{
       return false;
     }
-
-
   }
+
+  function toggle(){
+    $("#shareChoice").toggle();
+
+    $("#firstChoice").click(function (){
+        $("#shareChoice").toggle();
+        $("#firstChoice").toggleClass('selected');
+        $("#secondChoice,#thirdChoice,#faSecond,#faThird").toggleClass('unselected');
+    });
+
+    $("#secondChoice").hover(function(){
+        $("#faSecond, #secondChoice").toggleClass('unselected');
+    });
+
+     $("#thirdChoice").hover(function(){
+        $("#faThird, #thirdChoice").toggleClass('unselected');
+    });
+  }
+
 
   function ajaxFormSubmit(){
     var $form = document.forms[0];
@@ -25,16 +42,15 @@ $(document).ready(function(){
       e.preventDefault();
 
       //html object
-     var embedly_html = embedly();
+      var embedly_html = embedly();
 
       if (embedly_html){
         var descriptionMessage = $('#message_description').val().replace($('#message_description').data('preview').original_url,'');
       }
       else{
         var descriptionMessage = $('#message_description').val();
+        embedly_html = '';
       }
-
-
 
       $.ajax({
           url: '/profile_pages/'+ userId + '/newsfeed.json',
@@ -48,68 +64,21 @@ $(document).ready(function(){
           method: 'POST'
         }).
         success(function(data) {
-          alert('hi');
-
-        //  console.log(data);
-
-      //    $(".newsfeed-post").clone().appendTo("#newsfeed");
-
-
-          // messageContainer.prepend( $('.newsfeed-post').clone() )
-    //       messageContainer.prepend(
-    //       "<%@user = User.find(" + data.user_id + ")%>"+
-    //         "<div class='newsfeed-post'>"+
-    //           "<div class='newsfeed-avatar'>"+
-    //             "<% if @user.avatar.path == nil %>"+
-    //               "<img src=<%=image_path('cat.png')%> />"+
-    //             "<%else%>"+
-    //               "<img src=<%= @user.avatar%> alt =<%= 'avatar'%> />"+
-    //             "<%end%>"+
-    //         "</div>"+
-
-    //       "<div class = 'newsfeed-info'>"+
-    //         "<div class='newsfeed-name'>"+
-    //           "<h1>"+
-    //             "<%=@user.first_name + ' ' + @user.last_name}%>"+
-    //           "</h1>"+
-    //           "<h2>"+
-    //             "<%if posts.user.experiences[0]%>"+
-    //               "<%=posts.user.experiences[0].title + ' at ' + posts.user.experiences[0].company_name}%>"+
-    //             "<%else%>"+
-    //               "<%=''%>"+
-    //             "<%end%>"+
-    //           "</h2>"+
-    //         "</div>"+
-
-    //     "<div class='newsfeed-description'>" + data.description + "</div>"+
-
-    //     // <div class='newsfeed-like'>
-    //     //   <%if posts.liked_ids_array%>
-    //     //     <%=liked = posts.liked_ids_array.split(',')%>
-    //     //       <%if liked.length == 1%>
-    //     //         <%= "#{liked[0].user.first_name + " " +liked[0].user.last_name + "likes this."}"%>
-    //     //       <%elsif liked.length == 2%>
-    //     //         <%= "#{liked[0].user.first_name + " " + liked[0].user.last_name + " and " + liked[1].user.first_name + " " + liked[1].user.last_name + "likes this."}"%>
-    //     //       <%else%>
-    //     //           <%="Likes (#{liked})"%>
-    //     //       <%end%>
-    //     //   <%else%>
-    //     //     <%="Likes (0)"%>
-    //     //   <%end%>
-    //     // </div>
-
-    //   "</div>"+
-
-    // "</div>");
-
-
-
-
+          liveNotif();
+          $('#message_description').val('');
+          $("#shareChoice").toggle();
+          $("#firstChoice").toggleClass('selected');
+          $("#secondChoice,#thirdChoice,#faSecond,#faThird").toggleClass('unselected');
         });
     });
   }
 
+
+
+
+  toggle();
   embedly();
   ajaxFormSubmit();
+  liveNotif();
 
 });
