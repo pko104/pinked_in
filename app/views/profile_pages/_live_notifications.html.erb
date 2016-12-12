@@ -1,4 +1,15 @@
+
+
+
 <%if @newsfeed%>
+
+<%if @friends%>
+  <%@friends.each do |friend|%>
+    <div class="friend">
+      <%=friend%>
+    </div>
+  <%end%>
+<%end%>
 
   <%@newsfeed.each do |posts|%>
 
