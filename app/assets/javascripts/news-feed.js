@@ -65,6 +65,7 @@ $(document).ready(function(){
         }).
         success(function(data) {
           liveNotif();
+          // postToFriends();
           $('#message_description').val('');
           $("#shareChoice").toggle();
           $("#firstChoice").toggleClass('selected');
@@ -73,9 +74,23 @@ $(document).ready(function(){
     });
   }
 
+  // function postToFriends(){
+
+  // function loadNewsfeed() {
+  //     // $.each( userIDArray, function(i,value){
+  //        // console.log(value);
+  //       $.ajax({
+  //           type: "GET",
+  //           url: "/profile_pages/" + userID + "/live_notifications"
+  //       });
+  //     // });
+  //   };
+  // }
+
+
   toggle();
   embedly();
   ajaxFormSubmit();
-  liveNotif();
+  // liveNotif();
 
 });
