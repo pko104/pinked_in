@@ -42,6 +42,10 @@ class ProfilePagesController < ApplicationController
 
     @current_user = current_user
     @message = Message.new(message_params)
+
+    if @current_user.network_id == nil{
+      @current_user.network_id == @current_user.id
+    }
     @message.network_id = @current_user.network_id
     @message.user_id = @current_user.id
 
