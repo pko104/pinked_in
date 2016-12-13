@@ -26,5 +26,5 @@ function liveNotif(){
   });
 };
 
-// liveNotif();
+liveNotif();
 

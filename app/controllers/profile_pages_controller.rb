@@ -38,8 +38,6 @@ class ProfilePagesController < ApplicationController
   end
 
   def newsfeed
-    # binding.pry
-
     @current_user = current_user
     @message = Message.new(message_params)
 
@@ -140,7 +138,7 @@ class ProfilePagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:description,:html)
+    params.require(:message).permit(:description,:html, :network_id)
 
   end
 

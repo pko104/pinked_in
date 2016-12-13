@@ -37,6 +37,7 @@ $(document).ready(function(){
     var $form = document.forms[0];
     var $formSubmit = $('#create-message');
     var userId = $('.new_message').attr('data-user');
+    var networkId = $('.new_message').attr('data-netowrkId');
 
     $formSubmit.on('click', function(e) {
       e.preventDefault();
@@ -58,6 +59,7 @@ $(document).ready(function(){
             message:{
               description: descriptionMessage,
               html: embedly_html,
+              network_id: networkId,
             },
           },
           dataType: 'html',
