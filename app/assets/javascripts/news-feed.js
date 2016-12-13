@@ -37,7 +37,7 @@ $(document).ready(function(){
     var $form = document.forms[0];
     var $formSubmit = $('#create-message');
     var userId = $('.new_message').attr('data-user');
-    var networkId = $('.new_message').attr('data-netowrkId');
+    var networkId = $('.new_message').attr('data-network-id');
 
     $formSubmit.on('click', function(e) {
       e.preventDefault();

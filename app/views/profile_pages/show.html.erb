@@ -93,7 +93,7 @@
 
   <div id='shareChoice'>
     <div class ="new-message">
-      <%= form_for @message, html: {'data-user' => @current_user.id, 'data-networkid' => @current_user.network_id}, url: newsfeed_profile_page_path(@current_user), method: :post do |f| %>
+      <%= form_for @message, html: {'data-user' => @current_user.id, 'data-network-id' => @current_user.network_id}, url: newsfeed_profile_page_path(@current_user), method: :post do |f| %>
         <div class ="message">
           <%= f.text_area :description,  placeholder: "What's on your mind?", size: "100x1" %>
           <div class="selector-wrapper"></div>
